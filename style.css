@@ -204,14 +204,14 @@ body.on-dark .nav-toggle span {
 
 .main-nav {
   display: flex;
-  gap: 14px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .main-nav a {
   text-decoration: none;
   color: var(--text);
-  font-size: 0.86rem;
+  font-size: 0.8rem;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -1149,6 +1149,31 @@ h1 em {
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--text-muted);
+}
+
+.cert-thumb {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 34px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cert-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cert-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-card-hover);
 }
 
 /* ---------- Testimonials ---------- */
