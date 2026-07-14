@@ -77,6 +77,33 @@ rings.forEach((ring) => {
   ringObserver.observe(ring);
 });
 
+// Chiffres clés de la bande d'accueil : compteur animé au scroll
+const countUps = document.querySelectorAll('.count-up');
+
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.getAttribute('data-count-to'), 10);
+      const duration = 1200;
+      const start = performance.now();
+      const format = (n) => Math.round(n).toLocaleString('fr-FR');
+      const step = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = format(target * eased);
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      };
+      requestAnimationFrame(step);
+      countObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.6 });
+
+countUps.forEach((el) => countObserver.observe(el));
+
 // Mise en avant du lien de navigation actif selon la section visible
 const navLinks = document.querySelectorAll('.main-nav a');
 const sections = Array.from(navLinks)

@@ -115,6 +115,28 @@ ul { padding-left: 1.2em; margin: 0 0 1em; }
   max-width: 640px;
 }
 
+/* Grand numéro décoratif devant chaque titre de section, pour rythmer la page */
+body { counter-reset: section-counter 0; }
+
+.section {
+  counter-increment: section-counter;
+}
+
+.section > .container > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.28em;
+}
+
+.section > .container > h2::before {
+  content: counter(section-counter, decimal-leading-zero);
+  font-size: 0.42em;
+  font-weight: 400;
+  color: var(--accent);
+  opacity: 0.4;
+  letter-spacing: 0.03em;
+}
+
 .subhead {
   margin-top: 1.6em;
 }
@@ -182,15 +204,16 @@ body.on-dark .nav-toggle span {
 
 .main-nav {
   display: flex;
-  gap: 22px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
 .main-nav a {
   text-decoration: none;
   color: var(--text);
-  font-size: 0.92rem;
+  font-size: 0.86rem;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .main-nav a:hover {
@@ -253,6 +276,19 @@ body { padding-top: 62px; }
     radial-gradient(circle at 70% 70%, var(--web3-accent), transparent 60%);
   filter: blur(70px);
   opacity: 0.28;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-glow-secondary {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  left: -120px;
+  top: -160px;
+  background: radial-gradient(circle at 50% 50%, var(--accent), transparent 65%);
+  filter: blur(80px);
+  opacity: 0.16;
   pointer-events: none;
   z-index: 0;
 }
@@ -355,7 +391,9 @@ h1 em {
 }
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 12px 22px;
   border-radius: var(--radius);
   text-decoration: none;
@@ -380,6 +418,17 @@ h1 em {
 
 .btn-web3:hover {
   filter: brightness(1.08);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 /* ---------- Bande chiffres clés ---------- */
@@ -460,6 +509,40 @@ h1 em {
   font-weight: 600;
 }
 
+.chip-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.2em 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip-list li {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.chip-list-web3 {
+  margin-top: 1.4em;
+}
+
+.chip-list-web3 li {
+  background: var(--web3-surface-alt);
+  color: var(--web3-text-muted);
+  border: 1px solid var(--web3-border);
+}
+
+.chip-list-web3 .chip-current {
+  background: var(--web3-accent-soft);
+  color: var(--web3-accent);
+  border-color: rgba(216, 169, 78, 0.4);
+}
+
 /* ---------- Ikigai : diagramme en cercles ---------- */
 :root {
   --ikigai-1: #c1512e;
@@ -534,6 +617,71 @@ h1 em {
   font-size: 0.92rem;
   color: var(--text-muted);
   margin: 0;
+}
+
+/* ---------- Timeline (parcours professionnel) ---------- */
+.timeline {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 0 0 0 22px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 160px 1fr auto;
+  align-items: baseline;
+  gap: 6px 16px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -22px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+}
+
+.timeline-item-current .timeline-dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.timeline-role {
+  font-weight: 700;
+}
+
+.timeline-org {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.timeline-item-current .timeline-role,
+.timeline-item-current .timeline-date {
+  color: var(--accent);
 }
 
 /* ---------- Service list ---------- */
@@ -1112,7 +1260,11 @@ h1 em {
   }
 }
 
-@media (max-width: 720px) {
+/* Le menu bascule en liste déroulante dès que la nav complète ne tient plus sur une ligne
+   (tablettes et petits laptops), indépendamment du seuil de recomposition du contenu ci-dessous.
+   Marge volontairement large au-delà du point de repli réel de la nav pour éviter tout recadrage
+   au pixel près. */
+@media (max-width: 1100px) {
   .nav-toggle {
     display: flex;
   }
@@ -1142,7 +1294,9 @@ h1 em {
     background: var(--web3-surface);
     border-bottom-color: var(--web3-border);
   }
+}
 
+@media (max-width: 720px) {
   .section {
     padding: 52px 0;
   }
@@ -1182,6 +1336,11 @@ h1 em {
 
   .card-wide {
     grid-column: span 1;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 2px;
   }
 }
 
