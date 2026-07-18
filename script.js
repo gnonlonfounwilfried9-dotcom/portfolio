@@ -153,7 +153,7 @@ document.addEventListener('keydown', (e) => {
 
 // Révélation subtile au scroll (cartes, galeries, graphiques, témoignages...)
 const revealTargets = document.querySelectorAll(
-  '.card, .ikigai-venn, .ikigai-caption, .chart-block, .gallery-item, .testimonial, .about-card, .stat-band-item, .fact-list, .cert-group'
+  '.card, .ikigai-venn, .ikigai-caption, .chart-block, .gallery-item, .testimonial, .about-card, .stat-band-item, .fact-list, .cert-group, .process-step, .value-item'
 );
 
 revealTargets.forEach((el, index) => {
