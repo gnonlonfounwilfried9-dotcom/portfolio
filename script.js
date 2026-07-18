@@ -14,22 +14,6 @@ mainNav.querySelectorAll('a').forEach((link) => {
   });
 });
 
-// Barres de compétences : remplissage au moment où elles entrent dans l'écran
-const skillFills = document.querySelectorAll('.skill');
-
-const skillObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const fill = entry.target.querySelector('.skill-fill');
-      const percent = entry.target.getAttribute('data-percent');
-      fill.style.width = percent + '%';
-      skillObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.4 });
-
-skillFills.forEach((skill) => skillObserver.observe(skill));
-
 // Graphiques en barres (réalisations, ambassadeur) : remplissage au scroll
 const barCharts = document.querySelectorAll('.bar-chart');
 
@@ -153,7 +137,7 @@ document.addEventListener('keydown', (e) => {
 
 // Révélation subtile au scroll (cartes, galeries, graphiques, témoignages...)
 const revealTargets = document.querySelectorAll(
-  '.card, .ikigai-venn, .ikigai-caption, .chart-block, .gallery-item, .testimonial, .about-card, .stat-band-item, .fact-list, .cert-group, .process-step, .value-item'
+  '.card, .ikigai-venn, .ikigai-caption, .chart-block, .gallery-item, .testimonial, .fact-item, .stat-band-item, .cert-group, .value-item, .skill-card'
 );
 
 revealTargets.forEach((el, index) => {
@@ -171,16 +155,3 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 revealTargets.forEach((el) => revealObserver.observe(el));
-
-// Bascule du menu en mode sombre pendant la section Ambassadeur Web3
-const web3Section = document.getElementById('ambassadeur-web3');
-
-if (web3Section) {
-  const themeObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      document.body.classList.toggle('on-dark', entry.isIntersecting);
-    });
-  }, { rootMargin: '-70px 0px 0px 0px', threshold: 0 });
-
-  themeObserver.observe(web3Section);
-}
