@@ -171,14 +171,14 @@ body { counter-reset: section-counter 0; }
 
 .main-nav {
   display: flex;
-  gap: 8px;
+  gap: 28px;
   flex-wrap: wrap;
 }
 
 .main-nav a {
   text-decoration: none;
   color: var(--text);
-  font-size: 0.8rem;
+  font-size: 0.92rem;
   font-weight: 500;
   white-space: nowrap;
 }
