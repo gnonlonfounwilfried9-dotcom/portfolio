@@ -1288,6 +1288,21 @@ h1 em {
   font-size: 0.9rem;
 }
 
+.testimonial-proof {
+  padding: 0;
+  overflow: hidden;
+}
+
+.testimonial-img {
+  display: block;
+  width: 100%;
+}
+
+.testimonial-proof cite {
+  display: block;
+  padding: 14px 22px;
+}
+
 /* ---------- Contact ---------- */
 .contact-list {
   list-style: none;
