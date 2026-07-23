@@ -745,6 +745,94 @@ h1 em {
   font-style: italic;
 }
 
+/* ---------- Chiffres clés compacts (remplacent les longs paragraphes) ---------- */
+.card-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin: 0.9em 0;
+}
+
+.card-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.card-stat strong {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.card-stat span {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.card-caption {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ---------- Cartes "livrable" (document + chiffres + galerie compacte) ---------- */
+.doc-card {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  padding: 0;
+  overflow: hidden;
+}
+
+.doc-card-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  border-right: 1px solid var(--border);
+  background: var(--surface-alt);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.doc-card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.35s ease;
+}
+
+.doc-card-media:hover img {
+  transform: scale(1.05);
+}
+
+.doc-card-body {
+  padding: 24px;
+  min-width: 0;
+}
+
+.gallery-compact {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 1em;
+}
+
+.gallery-compact .gallery-item img {
+  height: 54px;
+}
+
+.gallery-compact .gallery-caption {
+  display: none;
+}
+
 /* ---------- Galeries d'images ---------- */
 .gallery {
   display: grid;
@@ -1345,6 +1433,16 @@ h1 em {
 
   .card-wide {
     grid-column: span 1;
+  }
+
+  .doc-card {
+    grid-template-columns: 1fr;
+  }
+
+  .doc-card-media {
+    aspect-ratio: 16 / 9;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
   }
 
   .timeline-item {
