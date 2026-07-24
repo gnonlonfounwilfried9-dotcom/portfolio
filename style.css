@@ -1296,6 +1296,9 @@ h1 em {
 .testimonial-proof {
   padding: 0;
   overflow: hidden;
+  /* Ne pas dépasser la largeur native de la capture (850 px), sinon elle est agrandie et devient floue. */
+  max-width: 860px;
+  margin-inline: auto;
 }
 
 .testimonial-img {
