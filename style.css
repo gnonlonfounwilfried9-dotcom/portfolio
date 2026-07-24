@@ -68,8 +68,18 @@ ul { padding-left: 1.2em; margin: 0 0 1em; }
 }
 
 .section {
+  position: relative;
+  /* clip et non hidden : clip ne crée pas de conteneur de défilement,
+     donc la carte « En bref » reste bien en position: sticky. */
+  overflow: clip;
   padding: 72px 0;
   scroll-margin-top: 76px;
+}
+
+/* Le contenu passe au-dessus du calque décoratif animé. */
+.section > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .section-alt {
@@ -1116,12 +1126,21 @@ h1 em {
   background: linear-gradient(90deg, var(--gold), var(--accent-strong));
 }
 
+/* Halos + trame de points qui dérive lentement : évoque un réseau, en écho au Web3.
+   La marge négative évite qu'un bord apparaisse pendant la translation, et le
+   déplacement vaut exactement une maille (44 px) pour que la boucle soit invisible. */
 .theme-dark::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background: radial-gradient(640px circle at 88% 0%, var(--gold-soft), transparent 60%);
+  inset: -60px;
+  background:
+    radial-gradient(640px circle at 88% 0%, var(--gold-soft), transparent 60%),
+    radial-gradient(520px circle at 6% 100%, rgba(124, 92, 255, 0.14), transparent 62%),
+    radial-gradient(circle at center, rgba(242, 240, 234, 0.11) 1px, transparent 1.7px);
+  background-size: auto, auto, 44px 44px;
   pointer-events: none;
+  animation: web3-grid-drift 20s linear infinite;
+  will-change: transform;
 }
 
 .theme-dark .container {
@@ -1146,11 +1165,105 @@ h1 em {
   transform: none;
 }
 
+/* ---------- Motion d'arrière-plan ----------
+   Halos menthe et or qui dérivent derrière chaque section (la portée qui se
+   diffuse), trame en mouvement côté Web3, reflet sur la bande de chiffres.
+   On n'anime que transform et opacity, composités par le GPU : aucun
+   recalcul de mise en page, donc fluide y compris sur mobile. */
+
+@keyframes aura-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); opacity: 0.55; }
+  50%  { transform: translate3d(2.5%, -2%, 0) scale(1.12); opacity: 0.9; }
+  100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.55; }
+}
+
+@keyframes aura-drift-alt {
+  0%   { transform: translate3d(0, 0, 0) scale(1.1); opacity: 0.85; }
+  50%  { transform: translate3d(-2.5%, 2%, 0) scale(1); opacity: 0.5; }
+  100% { transform: translate3d(0, 0, 0) scale(1.1); opacity: 0.85; }
+}
+
+@keyframes web3-grid-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-44px, -44px, 0); }
+}
+
+@keyframes band-sheen {
+  0%, 62%  { transform: translateX(0) skewX(-14deg); }
+  100%     { transform: translateX(1900%) skewX(-14deg); }
+}
+
+/* Calque décoratif commun (le hero et la section Web3 ont déjà le leur). */
+.section:not(.hero):not(.theme-dark)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 48% at 14% 16%, var(--accent-soft), transparent 70%),
+    radial-gradient(36% 46% at 86% 84%, var(--gold-soft), transparent 72%);
+  animation: aura-drift 26s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Une section sur deux dérive en sens inverse pour éviter tout effet de pulsation commune. */
+.section-alt:not(.hero):not(.theme-dark)::before {
+  animation-name: aura-drift-alt;
+  animation-duration: 32s;
+}
+
+.hero-glow {
+  animation: aura-drift 24s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.hero-glow-secondary {
+  animation: aura-drift-alt 30s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Reflet qui balaie la bande de chiffres clés. */
+.stats-band {
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-band > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.stats-band::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  bottom: -50%;
+  left: -12%;
+  width: 6%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  pointer-events: none;
+  animation: band-sheen 11s ease-in-out infinite;
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     transition: none;
     opacity: 1;
     transform: none;
+  }
+
+  .section::before,
+  .theme-dark::after,
+  .stats-band::after,
+  .hero-glow,
+  .hero-glow-secondary {
+    animation: none;
+  }
+
+  .stats-band::after {
+    display: none;
   }
 }
 
