@@ -135,16 +135,9 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox();
 });
 
-// Révélation subtile au scroll (cartes, galeries, graphiques, témoignages...)
-const revealTargets = document.querySelectorAll(
-  '.card, .ikigai-venn, .ikigai-caption, .chart-block, .gallery-item, .testimonial, .fact-item, .stat-band-item, .cert-group, .value-item, .skill-card'
-);
-
-revealTargets.forEach((el, index) => {
-  el.classList.add('reveal');
-  el.style.transitionDelay = (index % 4) * 70 + 'ms';
-});
-
+// Révélation au scroll (cartes, galeries, timeline, témoignages...)
+// Le délai est calculé par rapport aux frères directs pour créer un effet
+// de cascade groupe par groupe, plutôt qu'un simple compteur global.
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -152,6 +145,24 @@ const revealObserver = new IntersectionObserver((entries) => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.12 });
 
-revealTargets.forEach((el) => revealObserver.observe(el));
+const revealTargets = document.querySelectorAll(
+  '.card, .ikigai-venn, .ikigai-caption, .chart-block, .gallery-item, .testimonial, ' +
+  '.fact-item, .stat-band-item, .cert-group, .value-item, .skill-card, ' +
+  '.timeline-item, .process-step, .chip-list li'
+);
+
+revealTargets.forEach((el) => {
+  el.classList.add('reveal');
+  const siblings = Array.from(el.parentElement.children).filter((c) => c.classList.contains('reveal'));
+  const i = siblings.indexOf(el);
+  el.style.transitionDelay = Math.min(i, 6) * 80 + 'ms';
+  revealObserver.observe(el);
+});
+
+// Titres de section : légère montée à l'apparition
+document.querySelectorAll('.section > .container > h2').forEach((h) => {
+  h.classList.add('reveal-title');
+  revealObserver.observe(h);
+});
