@@ -1,19 +1,19 @@
 /* ---------- Base & variables ---------- */
 :root {
-  /* -- Thème unique (repris du portfolio de Marion Gbodogli) -- */
-  --bg: #0d211f;
-  --bg-alt: #0a1a18;
-  --surface: #123330;
-  --surface-alt: #163b37;
-  --text: #eef7f4;
-  --text-muted: #9fc3bc;
-  --border: rgba(255, 255, 255, 0.08);
-  --accent: #3fd8b8;
-  --accent-strong: #2ab89b;
-  --accent-soft: rgba(63, 216, 184, 0.14);
-  --accent-contrast: #06201d;
-  --gold: #e8c76b;
-  --gold-soft: rgba(232, 199, 107, 0.14);
+  /* -- Charte graphique bleue (marine + bleu ciel), reprise du deck « Échange » -- */
+  --bg: #0e2038;
+  --bg-alt: #0a1a2e;
+  --surface: #14294a;
+  --surface-alt: #17325a;
+  --text: #eef4fb;
+  --text-muted: #9fb3c8;
+  --border: rgba(255, 255, 255, 0.09);
+  --accent: #37bdf7;
+  --accent-strong: #1a9fe0;
+  --accent-soft: rgba(55, 189, 247, 0.14);
+  --accent-contrast: #04121f;
+  --gold: #6fb7e8;
+  --gold-soft: rgba(111, 183, 232, 0.14);
   --radius: 14px;
   --max-width: 1160px;
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.35);
@@ -154,7 +154,7 @@ body { counter-reset: section-counter 0; }
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(13, 33, 31, 0.92);
+  background: rgba(14, 32, 56, 0.92);
   border-bottom: 1px solid var(--border);
   backdrop-filter: saturate(180%) blur(6px);
   z-index: 100;
@@ -318,7 +318,7 @@ h1 em {
 .role-pill-web3 {
   background: var(--gold-soft);
   color: var(--gold);
-  border: 1px solid rgba(232, 199, 107, 0.4);
+  border: 1px solid rgba(111, 183, 232, 0.4);
 }
 
 .hero-photo-block {
@@ -504,15 +504,15 @@ h1 em {
 .chip-list-web3 .chip-current {
   background: var(--gold-soft);
   color: var(--gold);
-  border-color: rgba(232, 199, 107, 0.4);
+  border-color: rgba(111, 183, 232, 0.4);
 }
 
 /* ---------- Ikigai : diagramme en cercles ---------- */
 :root {
-  --ikigai-1: #3fd8b8;
-  --ikigai-2: #e8c76b;
-  --ikigai-3: #e2725c;
-  --ikigai-4: #6c8ee2;
+  --ikigai-1: #37bdf7;
+  --ikigai-2: #4a90d9;
+  --ikigai-3: #6c8ee2;
+  --ikigai-4: #3fb6c8;
 }
 
 .ikigai-diagram {
@@ -1112,7 +1112,7 @@ h1 em {
   overflow: hidden;
   --accent: var(--gold);
   --accent-soft: var(--gold-soft);
-  --accent-contrast: #2b2004;
+  --accent-contrast: #04121f;
   background: var(--surface-alt);
 }
 
@@ -1135,7 +1135,7 @@ h1 em {
   inset: -60px;
   background:
     radial-gradient(640px circle at 88% 0%, var(--gold-soft), transparent 60%),
-    radial-gradient(520px circle at 6% 100%, rgba(124, 92, 255, 0.14), transparent 62%),
+    radial-gradient(520px circle at 6% 100%, rgba(55, 189, 247, 0.14), transparent 62%),
     radial-gradient(circle at center, rgba(242, 240, 234, 0.11) 1px, transparent 1.7px);
   background-size: auto, auto, 44px 44px;
   pointer-events: none;
