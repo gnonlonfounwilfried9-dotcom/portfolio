@@ -1,848 +1,660 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="is-loading">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GNONLONFOUN Sènakpon Wilfried · Community Manager &amp; Ambassadeur Web3</title>
-<meta name="description" content="Portfolio de GNONLONFOUN Sènakpon Wilfried, Community Manager, Créateur de contenu et Ambassadeur Web3 basé à Cotonou / Abomey-Calavi, Bénin.">
+<title>Wilfried GNONLONFOUN · Social Media, contenu et automatisation IA</title>
+<meta name="description" content="Portfolio de GNONLONFOUN Sènakpon Wilfried : Social Media Manager, créateur de contenu, automatisation IA et ambassadeur Web3, basé à Cotonou, Bénin.">
+<meta name="theme-color" content="#050c1a">
+<meta property="og:title" content="Wilfried GNONLONFOUN · Social Media et automatisation IA">
+<meta property="og:description" content="Communautés, contenus, affiches, vidéos et un agent IA qui publie seul.">
+<meta property="og:image" content="assets/img/cut/portrait-blanc.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('reduce-motion')}catch(e){}</script>
 </head>
 <body>
 
-<!-- Icônes SVG réutilisées (définies une seule fois, référencées via <use>) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 22s7-7.58 7-13A7 7 0 0 0 5 9c0 5.42 7 13 7 13Z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
-    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.6 21 3 12.4 3 2c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z" fill="currentColor"/></symbol>
-    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
-    <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.97V21H9z" fill="currentColor"/></symbol>
-    <symbol id="icon-x" viewBox="0 0 24 24"><path d="M18.9 2H22l-7.2 8.2L23 22h-6.4l-5-6.5L5.7 22H2.5l7.7-8.8L2 2h6.6l4.5 6 5.8-6Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z" fill="currentColor"/></symbol>
-    <symbol id="icon-expand" viewBox="0 0 24 24"><path d="M9 3H3v6M15 3h6v6M9 21H3v-6M15 21h6v-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m4 12.5 5.5 5.5L20 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4.5-4.5M12 15 7.5 10.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-    <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 20V10M12 20V4M20 20v-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-    <symbol id="icon-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="17" cy="7" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 13.2c2.6.4 4.5 2.6 4.5 5.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
-    <symbol id="icon-video" viewBox="0 0 24 24"><rect x="3" y="6" width="14" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m17 10 4-2.5v9L17 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-sparkles" viewBox="0 0 24 24"><path d="M12 3c0 4-.5 6.5-2 8s-4 2-8 2c4 0 6.5.5 8 2s2 4 2 8c0-4 .5-6.5 2-8s4-2 8-2c-4 0-6.5-.5-8-2s-2-4-2-8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-wand" viewBox="0 0 24 24"><path d="m4 20 12-12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M17 3l.6 1.8L19.4 5.4 17.6 6l-.6 1.8L16.4 6 14.6 5.4 16.4 4.8Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-message" viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4V5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.5 4 5.8 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.8-4-9s1.5-6.5 4-9Z" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
-    <symbol id="icon-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 20h8M12 16v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-    <symbol id="icon-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="icon-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8.5" cy="9.5" r="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m4 17 5-5 4 4 3-3 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-asterisk" viewBox="0 0 24 24"><path d="M12 4v16M5.07 8l13.86 8M5.07 16l13.86-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="currentColor"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" fill="currentColor"/><rect x="2" y="9" width="4" height="12" fill="currentColor"/><circle cx="4" cy="4" r="2" fill="currentColor"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18.9 2H22l-7.2 8.2L23 22h-6.4l-5-6.5L5.7 22H2.5l7.7-8.8L2 2h6.6l4.5 6 5.8-6Zm-1.1 18h1.8L7.3 3.9H5.4L17.8 20Z" fill="currentColor"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3c.4 3.6 1.6 5.3 5 6-3.4.7-4.6 2.4-5 6-.4-3.6-1.6-5.3-5-6 3.4-.7 4.6-2.4 5-6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M19 15c.2 1.6.8 2.3 2.2 2.6-1.4.3-2 1-2.2 2.6-.2-1.6-.8-2.3-2.2-2.6 1.4-.3 2-1 2.2-2.6Z" fill="currentColor"/></symbol>
+    <symbol id="i-sheet" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M3 15h18M9 3v18" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 12l6.5-6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5Z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-7.6 7-13A7 7 0 0 0 5 9c0 5.4 7 13 7 13Z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bitcoin" viewBox="0 0 24 24"><path d="M9 6h5.5a3 3 0 0 1 0 6H9h6a3 3 0 0 1 0 6H9V6ZM11 3v3M14 3v3M11 18v3M14 18v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-clapper" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m3.5 9 1.6-5 15.4 3.6L20 9M8 4.6l2.2 4.2M13.5 5.8l2.2 3.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><path d="m4 17 6-6-6-6M12 19h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   </defs>
 </svg>
 
-<header class="site-header">
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner"><span class="loader-mark">WG</span><span class="loader-count" id="loaderCount">0</span></div>
+  <div class="loader-bar"><span id="loaderBar"></span></div>
+</div>
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor-label" id="cursorLabel"></span></div>
+<div class="scroll-bar" aria-hidden="true"><span id="scrollBar"></span></div>
+
+<header class="site-header" id="siteHeader">
   <div class="header-inner">
-    <a href="#accueil" class="logo">S. Wilfried GNONLONFOUN</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="main-nav" id="mainNav">
-      <a href="#a-propos">Profil</a>
-      <a href="#community-manager">Community Manager</a>
-      <a href="#ambassadeur-web3">Web3</a>
-      <a href="#contact">Contact</a>
+    <a href="#accueil" class="logo"><span class="logo-mark">WG</span><span class="logo-text">Wilfried GNONLONFOUN</span></a>
+    <nav class="main-nav" id="mainNav" aria-label="Navigation principale">
+      <a href="#agent-ia">Agent IA</a>
+      <a href="#projets">Projets</a>
+      <a href="#affiches">Affiches</a>
+      <a href="#videos">Vidéos</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#contact" class="nav-cta">Me contacter</a>
     </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mainNav"><span></span><span></span></button>
   </div>
 </header>
 
 <main>
 
-  <!-- 1. ACCUEIL -->
-  <section id="accueil" class="section hero">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="hero-glow-secondary" aria-hidden="true"></div>
-    <div class="container hero-inner">
-      <div class="hero-text-block">
-        <p class="eyebrow"><span class="eyebrow-index">01</span>Portfolio</p>
-        <h1>GNONLONFOUN Sènakpon<br><em>Wilfried</em></h1>
-        <div class="hero-roles">
-          <span class="role-pill role-pill-cm">Community Manager &amp; Créateur de contenu</span>
-          <span class="role-pill role-pill-web3">Ambassadeur Web3</span>
-        </div>
-        <p class="hero-text">J'aide marques et projets à exister en ligne&nbsp;: communautés et contenus d'un côté, crypto et Web3 de l'autre.</p>
-        <p class="hero-location"><svg class="icon" width="16" height="16"><use href="#icon-pin"/></svg> Basé à Cotonou / Abomey-Calavi, Bénin</p>
-        <div class="hero-actions">
-          <a href="#community-manager" class="btn btn-primary">Profil Community Manager</a>
-          <a href="#ambassadeur-web3" class="btn btn-web3">Profil Ambassadeur Web3</a>
-        </div>
+  <!-- 01 ACCUEIL -->
+  <section id="accueil" class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-spot" aria-hidden="true"></div>
+    <canvas class="hero-particles" id="heroParticles" aria-hidden="true"></canvas>
+
+    <div class="hero-type" aria-hidden="true">
+      <span class="hero-word hero-word-outline">WILFRIED</span>
+      <span class="hero-word hero-word-fill">WILFRIED</span>
+    </div>
+
+    <div class="hero-stage">
+      <div class="hero-blob" aria-hidden="true"></div>
+      <div class="hero-ring" aria-hidden="true"></div>
+      <div class="hero-ring hero-ring-2" aria-hidden="true"></div>
+      <img class="hero-person" src="assets/img/cut/portrait-blanc.webp" alt="Portrait de Wilfried GNONLONFOUN, chemise blanche, regard caméra" width="1000" height="1158" fetchpriority="high">
+
+      <span class="orbit orbit-1" data-float><svg width="22" height="22"><use href="#i-facebook"/></svg></span>
+      <span class="orbit orbit-2" data-float><svg width="22" height="22"><use href="#i-linkedin"/></svg></span>
+      <span class="orbit orbit-3" data-float><svg width="22" height="22"><use href="#i-sparkles"/></svg></span>
+      <span class="orbit orbit-4" data-float><svg width="22" height="22"><use href="#i-bitcoin"/></svg></span>
+      <span class="orbit orbit-5" data-float><svg width="22" height="22"><use href="#i-instagram"/></svg></span>
+      <span class="orbit orbit-6" data-float><svg width="22" height="22"><use href="#i-camera"/></svg></span>
+
+      <div class="hero-badge hero-badge-live" data-float>
+        <span class="live-dot"></span>
+        <span><strong>Agent IA actif</strong><small id="liveTicker">publication programmée</small></span>
       </div>
-      <div class="hero-photo-block">
-        <div class="hero-photo-frame">
-          <img src="assets/img/profil-wilfried.jpg" alt="Portrait de GNONLONFOUN Sènakpon Wilfried" class="hero-photo">
-        </div>
+      <div class="hero-badge hero-badge-count" data-float>
+        <strong><span class="count" data-to="120">0</span>+</strong><small>posts publiés seuls</small>
       </div>
+    </div>
+
+    <div class="hero-copy">
+      <p class="hero-kicker"><span class="kicker-line"></span>GNONLONFOUN Sènakpon</p>
+      <h1 class="hero-title">
+        <span class="line"><span>Je fais vivre</span></span>
+        <span class="line"><span>les marques en ligne</span></span>
+      </h1>
+      <p class="hero-roles" aria-live="polite"><span class="roles-prefix">en tant que</span> <span class="roles-word" id="rolesWord">Social Media Manager</span><span class="roles-caret" aria-hidden="true"></span></p>
+      <p class="hero-lead">Communautés, affiches, vidéos et un agent IA qui publie pour moi, du matin au soir.</p>
+      <div class="hero-actions">
+        <a href="#agent-ia" class="btn btn-yellow" data-magnetic>Voir mon agent IA <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
+        <a href="#projets" class="btn btn-ghost" data-magnetic>Mes projets</a>
+      </div>
+    </div>
+
+    <div class="hero-meta">
+      <p><svg width="15" height="15"><use href="#i-pin"/></svg> Cotonou, Bénin</p>
+      <p class="hero-scroll"><span></span>Défiler</p>
     </div>
   </section>
 
-  <!-- BANDE CHIFFRES CLÉS -->
-  <div class="stats-band">
-    <div class="container stats-band-inner">
-      <div class="stat-band-item">
-        <p class="stat-band-number"><span class="count-up" data-count-to="3">0</span></p>
-        <p class="stat-band-label">Communautés animées</p>
-      </div>
-      <div class="stat-band-item">
-        <p class="stat-band-number"><span class="count-up" data-count-to="24">0</span></p>
-        <p class="stat-band-label">Affiliations en 3 jours (record Coin8)</p>
-      </div>
-      <div class="stat-band-item">
-        <p class="stat-band-number"><span class="count-up" data-count-to="125">0</span>/125</p>
-        <p class="stat-band-label">Défi contenus complété</p>
-      </div>
-    </div>
+  <div class="marquee-band" aria-hidden="true">
+    <div class="marquee marquee-yellow"><div class="marquee-track">
+      <span>Social media</span><svg><use href="#i-asterisk"/></svg><span>Automatisation IA</span><svg><use href="#i-asterisk"/></svg><span>Création de contenu</span><svg><use href="#i-asterisk"/></svg><span>Affiches</span><svg><use href="#i-asterisk"/></svg><span>Motion design</span><svg><use href="#i-asterisk"/></svg><span>Web3</span><svg><use href="#i-asterisk"/></svg>
+    </div></div>
+    <div class="marquee marquee-blue marquee-reverse"><div class="marquee-track">
+      <span>WILACTU</span><svg><use href="#i-asterisk"/></svg><span>Roots Technologies</span><svg><use href="#i-asterisk"/></svg><span>Panda Ticket</span><svg><use href="#i-asterisk"/></svg><span>Kom'Arts</span><svg><use href="#i-asterisk"/></svg><span>Benin Blockchain Days</span><svg><use href="#i-asterisk"/></svg><span>MTN TITA</span><svg><use href="#i-asterisk"/></svg>
+    </div></div>
   </div>
 
-  <!-- 2. À PROPOS -->
-  <section id="a-propos" class="section">
+  <!-- 02 PROFIL -->
+  <section id="profil" class="section section-profil">
+    <div class="container profil-layout">
+      <div class="profil-card" data-tilt>
+        <div class="profil-card-glow" aria-hidden="true"></div>
+        <img src="assets/img/profil-wilfried.jpg" alt="Portrait de Wilfried GNONLONFOUN en veste sombre" loading="lazy">
+        <div class="profil-card-tag"><span class="live-dot"></span>Ouvert aux collaborations</div>
+      </div>
+      <div>
+        <p class="eyebrow"><span>02</span>Qui je suis</p>
+        <p class="manifesto" data-words>Digital, Web3 et communication. Je monte des communautés, je produis les visuels et les vidéos qui les font vivre, et j'automatise la publication avec l'IA. Stratégie, production, animation et suivi, sans sous-traiter aucune étape.</p>
+      </div>
+    </div>
     <div class="container">
-      <p class="eyebrow"><span class="eyebrow-index">02</span>Profil</p>
-      <h2>À propos</h2>
-      <div class="about-text">
-        <p>Digital, Web3 et communication&nbsp;: je monte des communautés, je crée les contenus qui les font vivre, et j'aide des marques à exister en ligne. Stratégie, production et animation, sans sous-traiter aucune étape.</p>
-        <p>Ma vision&nbsp;: une génération africaine qui maîtrise le numérique pour créer et se faire une place sur le marché mondial, pas seulement pour suivre.</p>
-        <ul class="chip-list">
-          <li>Licence Géographie &amp; Aménagement du territoire, UAC</li>
-          <li>MTN TITA Digital Skills (YelloCare 2026)</li>
+      <div class="stat-row">
+        <div class="stat"><strong><span class="count" data-to="120">0</span>+</strong><span>posts publiés par mon agent IA</span></div>
+        <div class="stat"><strong><span class="count" data-to="99">0</span>+</strong><span>affiches produites et publiées</span></div>
+        <div class="stat"><strong><span class="count" data-to="125">0</span>/125</strong><span>défi contenus MTN TITA</span></div>
+        <div class="stat"><strong><span class="count" data-to="5">0</span></strong><span>marques gérées en parallèle</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 IKIGAÏ (animation continue) -->
+  <section id="ikigai" class="section section-ikigai">
+    <div class="container ikigai-layout">
+      <div>
+        <p class="eyebrow eyebrow-yellow"><span>03</span>Ma boussole</p>
+        <h2 class="big-title" data-split>Mon <em>ikigaï</em></h2>
+        <p class="section-lead">Quatre cercles qui se cherchent, se croisent et se rejoignent. Je travaille là où ils se superposent.</p>
+        <ul class="ikigai-list" id="ikigaiList">
+          <li data-k="0"><span class="dot k0"></span><div><h3>Ce que j'aime</h3><p>Animer, connecter, coacher et organiser des projets.</p></div></li>
+          <li data-k="1"><span class="dot k1"></span><div><h3>Ce pour quoi je suis doué</h3><p>Fédérer, diriger avec calme et communiquer avec tact.</p></div></li>
+          <li data-k="2"><span class="dot k2"></span><div><h3>Ce pour quoi je peux être payé</h3><p>CM Senior, Chef de Projet Digital, Consultant RS, Responsable commercial.</p></div></li>
+          <li data-k="3"><span class="dot k3"></span><div><h3>Ce dont le monde a besoin</h3><p>Community Managers formés et leaders digitaux.</p></div></li>
         </ul>
       </div>
-
-      <h3 class="subhead">En bref</h3>
-      <div class="fact-grid">
-        <div class="fact-item">
-          <h4>Localisation</h4>
-          <p>Cotonou / Abomey-Calavi, Bénin</p>
-        </div>
-        <div class="fact-item">
-          <h4>Formation</h4>
-          <p>Licence géographie &amp; aménagement du territoire, UAC</p>
-        </div>
-        <div class="fact-item">
-          <h4>Domaines</h4>
-          <p>Community management, création de contenu, Web3</p>
-        </div>
-        <div class="fact-item">
-          <h4>Disponibilité</h4>
-          <p>Ouvert aux collaborations</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. PARCOURS PROFESSIONNEL -->
-  <section id="parcours" class="section section-alt">
-    <div class="container">
-      <p class="eyebrow"><span class="eyebrow-index">03</span>Parcours</p>
-      <h2>Expérience professionnelle</h2>
-      <p class="section-intro">Le fil de mes missions, du premier poste aux collaborations Web3 en cours.</p>
-
-      <ol class="timeline">
-        <li class="timeline-item">
-          <span class="timeline-dot"></span>
-          <span class="timeline-date">Juil. 2024 à Janv. 2025</span>
-          <span class="timeline-role">Téléconseiller</span>
-          <span class="timeline-org">Media Contact Bénin</span>
-        </li>
-        <li class="timeline-item">
-          <span class="timeline-dot"></span>
-          <span class="timeline-date">Mars 2025</span>
-          <span class="timeline-role">Ambassadeur</span>
-          <span class="timeline-org">RobuSnipe</span>
-        </li>
-        <li class="timeline-item">
-          <span class="timeline-dot"></span>
-          <span class="timeline-date">Avril 2025</span>
-          <span class="timeline-role">Ambassadeur</span>
-          <span class="timeline-org">Multibank.io</span>
-        </li>
-        <li class="timeline-item">
-          <span class="timeline-dot"></span>
-          <span class="timeline-date">Sept. 2025</span>
-          <span class="timeline-role">Community Manager</span>
-          <span class="timeline-org">Deltrax Africa</span>
-        </li>
-        <li class="timeline-item">
-          <span class="timeline-dot"></span>
-          <span class="timeline-date">Oct. 2025</span>
-          <span class="timeline-role">Community Manager</span>
-          <span class="timeline-org">Hope With Bitcoin</span>
-        </li>
-        <li class="timeline-item">
-          <span class="timeline-dot"></span>
-          <span class="timeline-date">2026</span>
-          <span class="timeline-role">Ambassadeur</span>
-          <span class="timeline-org">K2 Powerblock</span>
-        </li>
-        <li class="timeline-item">
-          <span class="timeline-dot"></span>
-          <span class="timeline-date">22 avril - 13 juillet 2026</span>
-          <span class="timeline-role">Formation suivie</span>
-          <span class="timeline-org">TITA Digital Skills · Top CM&amp;CC</span>
-          <p class="timeline-desc">Programme intensif Community Management &amp; Création de Contenu porté par MTN Bénin Foundation et Digitale Vallée&nbsp;: stratégie social media, création de contenu, IA, développement personnel, avec pour examen pratique le Défi 125 contenus publiés en conditions réelles.</p>
-        </li>
-        <li class="timeline-item timeline-item-current">
-          <span class="timeline-dot"></span>
-          <span class="timeline-date">Juil. 2026 · en cours</span>
-          <span class="timeline-role">Community Manager</span>
-          <span class="timeline-org">KOM'ART</span>
-        </li>
-        <li class="timeline-item timeline-item-current">
-          <span class="timeline-dot"></span>
-          <span class="timeline-date">Juil. 2026 · en cours</span>
-          <span class="timeline-role">Community Manager</span>
-          <span class="timeline-org">Panda Tickets</span>
-        </li>
-        <li class="timeline-item timeline-item-current">
-          <span class="timeline-dot"></span>
-          <span class="timeline-date">Juil. 2026 · en cours</span>
-          <span class="timeline-role">Community Manager</span>
-          <span class="timeline-org">Roots Bénin</span>
-        </li>
-        <li class="timeline-item timeline-item-current">
-          <span class="timeline-dot"></span>
-          <span class="timeline-date">Août 2026 · en cours</span>
-          <span class="timeline-role">Community Manager</span>
-          <span class="timeline-org">Benin Blockchain Days 2027</span>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- 4. IKIGAÏ -->
-  <section id="ikigai" class="section">
-    <div class="container">
-      <p class="eyebrow"><span class="eyebrow-index">04</span>Boussole</p>
-      <h2>Mon ikigaï</h2>
-      <p class="section-intro">Ma boussole&nbsp;: je travaille là où ces quatre cercles se rejoignent.</p>
-      <div class="ikigai-diagram">
-        <svg class="ikigai-venn" viewBox="0 0 480 420" role="img" aria-labelledby="ikigai-title">
-          <title id="ikigai-title">Diagramme ikigaï&nbsp;: ce que j'aime, ce pour quoi je suis doué, ce pour quoi je peux être payé, ce dont le monde a besoin</title>
-          <circle class="venn-circle" cx="175" cy="155" r="145" fill="var(--ikigai-1)" opacity="0.55"></circle>
-          <circle class="venn-circle" cx="305" cy="155" r="145" fill="var(--ikigai-2)" opacity="0.55"></circle>
-          <circle class="venn-circle" cx="175" cy="265" r="145" fill="var(--ikigai-3)" opacity="0.55"></circle>
-          <circle class="venn-circle" cx="305" cy="265" r="145" fill="var(--ikigai-4)" opacity="0.55"></circle>
-          <text x="95" y="90" font-size="19">J'aime</text>
-          <text x="385" y="90" font-size="19">Doué</text>
-          <text x="95" y="325" font-size="19">Être payé</text>
-          <text x="385" y="322" font-size="19">Le monde</text>
-          <text x="385" y="343" font-size="19">a besoin</text>
-          <circle class="venn-center-bg" cx="240" cy="210" r="36"></circle>
-          <text class="venn-center-text" x="240" y="216" font-size="15">IKIGAÏ</text>
+      <div class="ikigai-stage" id="ikigaiStage" role="img" aria-label="Animation de l'ikigaï : quatre cercles qui se croisent puis se rejoignent au centre, en boucle">
+        <svg viewBox="0 0 600 600" class="ikigai-svg">
+          <defs>
+            <radialGradient id="g0"><stop offset="0" stop-color="#5cc2ff"/><stop offset="1" stop-color="#2f9fe0" stop-opacity=".55"/></radialGradient>
+            <radialGradient id="g1"><stop offset="0" stop-color="#ffd84d"/><stop offset="1" stop-color="#f6c21b" stop-opacity=".55"/></radialGradient>
+            <radialGradient id="g2"><stop offset="0" stop-color="#9a8cff"/><stop offset="1" stop-color="#6b5cff" stop-opacity=".55"/></radialGradient>
+            <radialGradient id="g3"><stop offset="0" stop-color="#4fe3bf"/><stop offset="1" stop-color="#18c9a0" stop-opacity=".55"/></radialGradient>
+          </defs>
+          <g class="ik-orbits"><circle cx="300" cy="300" r="250" /><circle cx="300" cy="300" r="170" /></g>
+          <g id="ikCircles">
+            <circle r="120" fill="url(#g0)" class="ik"/>
+            <circle r="120" fill="url(#g1)" class="ik"/>
+            <circle r="120" fill="url(#g2)" class="ik"/>
+            <circle r="120" fill="url(#g3)" class="ik"/>
+          </g>
+          <g id="ikLabels" class="ik-labels">
+            <text>J'aime</text><text>Doué</text><text>Payé</text><text>Le monde</text>
+          </g>
+          <circle cx="300" cy="300" r="46" class="ik-core" id="ikCore"/>
+          <text x="300" y="307" class="ik-core-text" id="ikCoreText">IKIGAÏ</text>
         </svg>
-        <ul class="ikigai-captions">
-          <li class="ikigai-caption">
-            <span class="ikigai-dot" style="background: var(--ikigai-1)"></span>
-            <div>
-              <h3>Ce que j'aime</h3>
-              <p>Animer, connecter, coacher et organiser des projets.</p>
-            </div>
-          </li>
-          <li class="ikigai-caption">
-            <span class="ikigai-dot" style="background: var(--ikigai-2)"></span>
-            <div>
-              <h3>Ce pour quoi je suis doué</h3>
-              <p>Fédérer, diriger avec calme et communiquer avec tact.</p>
-            </div>
-          </li>
-          <li class="ikigai-caption">
-            <span class="ikigai-dot" style="background: var(--ikigai-3)"></span>
-            <div>
-              <h3>Ce pour quoi je peux être payé</h3>
-              <p>CM Senior, Chef de Projet Digital, Consultant RS, Responsable commercial.</p>
-            </div>
-          </li>
-          <li class="ikigai-caption">
-            <span class="ikigai-dot" style="background: var(--ikigai-4)"></span>
-            <div>
-              <h3>Ce dont le monde a besoin</h3>
-              <p>Community Managers formés et leaders digitaux.</p>
-            </div>
-          </li>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 AGENT IA -->
+  <section id="agent-ia" class="section section-agent">
+    <div class="agent-grid-bg" aria-hidden="true"></div>
+    <div class="container">
+      <p class="eyebrow eyebrow-yellow"><span>04</span>Projet phare</p>
+      <h2 class="big-title" data-split>Mon agent <em>social media</em></h2>
+      <p class="section-lead">Une agence qui travaille seule : zéro employé, zéro abonnement. Je l'ai conçu avec Claude puis branché sur plusieurs pages. Mon rôle : fixer la ligne éditoriale, autoriser et valider. Le reste tourne en continu.</p>
+
+      <div class="agent-layout">
+        <div>
+          <ol class="pipeline" id="pipeline">
+            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-sheet"/></svg></span><div><h3>Calendrier éditorial</h3><p>Chaque post vit dans un Google Sheets : date, heure, réseau, texte, visuel, statut.</p></div></li>
+            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-pen"/></svg></span><div><h3>Rédaction et affiches</h3><p>Textes avec hook, référencement et appel à l'action, affiches au format de chaque marque.</p></div></li>
+            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-radar"/></svg></span><div><h3>Radar d'actualité</h3><p>Un radar Gemini repère les infos chaudes (sport, crypto, tech, cybersécurité) et prépare des breaking news vérifiées.</p></div></li>
+            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-mail"/></svg></span><div><h3>Mail de validation</h3><p>30 minutes avant chaque publication, un mail part avec le post. Un clic pour valider ou refuser.</p></div></li>
+            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-send"/></svg></span><div><h3>Publication automatique</h3><p>Apps Script publie via les API Meta et LinkedIn, même PC éteint.</p></div></li>
+            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-bell"/></svg></span><div><h3>Notification et journal</h3><p>Une confirmation arrive 5 minutes après, chaque action est consignée dans un journal de suivi.</p></div></li>
+          </ol>
+        </div>
+
+        <div class="agent-side">
+          <div class="phone" data-video-open="assets/video/agence-wilfried.mp4" data-cursor="Écouter">
+            <div class="phone-notch"></div>
+            <video src="assets/video/agence-wilfried.mp4" poster="assets/video/agence-wilfried.jpg" muted loop playsinline preload="none" data-autoplay></video>
+            <button type="button" class="phone-sound" aria-label="Regarder avec le son"><svg width="16" height="16"><use href="#i-volume"/></svg> Avec le son</button>
+          </div>
+          <div class="terminal" aria-label="Exemple du journal de l'agent">
+            <div class="terminal-head"><span></span><span></span><span></span><p><svg width="14" height="14"><use href="#i-terminal"/></svg> journal de l'agent · exemple d'une journée</p></div>
+            <ol class="terminal-body" id="terminal"></ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="agent-stats">
+        <div><strong><span class="count" data-to="120">0</span></strong><span>posts Facebook WILACTU</span></div>
+        <div><strong>4<small>/jour</small></strong><span>publications Facebook</span></div>
+        <div><strong>30<small>min</small></strong><span>préavis de validation</span></div>
+        <div><strong>0</strong><span>employé, 0 abonnement</span></div>
+      </div>
+
+      <div class="connected">
+        <p class="connected-title">Pages branchées sur l'agent</p>
+        <ul class="connected-list">
+          <li><svg width="18" height="18"><use href="#i-facebook"/></svg><svg width="18" height="18"><use href="#i-linkedin"/></svg>WILACTU</li>
+          <li><svg width="18" height="18"><use href="#i-linkedin"/></svg>Mon profil LinkedIn</li>
+          <li><svg width="18" height="18"><use href="#i-facebook"/></svg><svg width="18" height="18"><use href="#i-instagram"/></svg><svg width="18" height="18"><use href="#i-linkedin"/></svg>Roots Technologies</li>
+          <li><svg width="18" height="18"><use href="#i-facebook"/></svg>Panda Ticket</li>
+        </ul>
+        <div class="stack-marquee" aria-hidden="true"><div class="marquee-track">
+          <span>Claude</span><i></i><span>Gemini</span><i></i><span>Google Sheets</span><i></i><span>Apps Script</span><i></i><span>API Meta</span><i></i><span>API LinkedIn</span><i></i><span>Gmail</span><i></i><span>GitHub</span><i></i>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 PROJETS -->
+  <section id="projets" class="section section-projects">
+    <div class="container">
+      <p class="eyebrow"><span>05</span>Projets</p>
+      <h2 class="big-title" data-split>Marques que <em>je fais vivre</em></h2>
+      <p class="section-lead">Chaque projet a sa page détaillée, ouverte en un clic : contexte, rôle, outils, résultats et tous les visuels.</p>
+    </div>
+
+    <div class="stack">
+      <article class="stack-card" style="--c1:#0b2350;--c2:#f6c21b">
+        <div class="stack-text">
+          <p class="stack-num">01</p>
+          <p class="tag">Média automatisé · Facebook et LinkedIn</p>
+          <h3>WILACTU</h3>
+          <p>Mon média, lancé en octobre 2026 : football, crypto, numérique et actu du quotidien. Il tourne grâce à mon agent IA, avec quatre publications par jour sur Facebook et un fil personnel sur LinkedIn.</p>
+          <div class="kpis"><div><strong>120</strong><span>posts Facebook</span></div><div><strong>13</strong><span>posts LinkedIn</span></div><div><strong>99+</strong><span>affiches</span></div></div>
+          <a href="https://gnonlonfounwilfried9-dotcom.github.io/projets/wilactu.html" class="link-arrow" target="_blank" rel="noopener">Ouvrir le projet <svg width="16" height="16"><use href="#i-external"/></svg></a>
+        </div>
+        <div class="stack-media stack-media-fan">
+          <img src="assets/work/wilactu/wilactu-05.webp" alt="Affiche WILACTU sur Roger Milla au Mondial 1990" loading="lazy">
+          <img src="assets/work/wilactu/wilactu-01.webp" alt="Affiche WILACTU : deux pizzas pour 10 000 bitcoins" loading="lazy">
+          <img src="assets/work/wilactu/wilactu-15.webp" alt="Visuel LinkedIn de Wilfried pour WILACTU" loading="lazy">
+        </div>
+      </article>
+
+      <article class="stack-card" style="--c1:#3a0f0a;--c2:#ffcf24">
+        <div class="stack-text">
+          <p class="stack-num">02</p>
+          <p class="tag">Community Manager · Billetterie en ligne</p>
+          <h3>Panda Ticket</h3>
+          <p>Plan de 92 publications, deux par jour, avec une mascotte illustrée et une voix qui fait sourire. Tous les événements sont mis en avant dès la première semaine : vote, billetterie et affiliation.</p>
+          <div class="kpis"><div><strong>92</strong><span>posts planifiés</span></div><div><strong>2</strong><span>posts par jour</span></div><div><strong>6</strong><span>semaines de plan</span></div></div>
+          <a href="https://gnonlonfounwilfried9-dotcom.github.io/projets/panda-ticket.html" class="link-arrow" target="_blank" rel="noopener">Ouvrir le projet <svg width="16" height="16"><use href="#i-external"/></svg></a>
+        </div>
+        <div class="stack-media stack-media-fan">
+          <img src="assets/work/panda/panda-02.webp" alt="Affiche Panda Ticket : ce soir à minuit, fin des votes" loading="lazy">
+          <img src="assets/work/panda/panda-01.webp" alt="Affiche Panda Ticket avec la mascotte panda" loading="lazy">
+          <img src="assets/work/panda/panda-03.webp" alt="Affiche Panda Ticket : 100 francs, la plage, l'aube" loading="lazy">
+        </div>
+      </article>
+
+      <article class="stack-card" style="--c1:#0a2a5c;--c2:#38c6f4">
+        <div class="stack-text">
+          <p class="stack-num">03</p>
+          <p class="tag">Community Manager · Informatique B2B</p>
+          <h3>Roots Technologies</h3>
+          <p>Catalogue produits avec vrais prix, films en motion design, porte-parole vidéo générée avec Google Flow et publication automatisée sur Facebook, Instagram et LinkedIn.</p>
+          <div class="kpis"><div><strong>180</strong><span>fiches catalogue</span></div><div><strong>5</strong><span>films motion</span></div><div><strong>3</strong><span>réseaux automatisés</span></div></div>
+          <a href="https://gnonlonfounwilfried9-dotcom.github.io/projets/roots-technologies.html" class="link-arrow" target="_blank" rel="noopener">Ouvrir le projet <svg width="16" height="16"><use href="#i-external"/></svg></a>
+        </div>
+        <div class="stack-media stack-media-video">
+          <video src="assets/video/roots-drones.mp4" poster="assets/video/roots-drones.jpg" muted loop playsinline preload="none" data-autoplay></video>
+          <img src="assets/work/roots/roots-03.webp" alt="Fiche catalogue Roots : Dell XPS 14" loading="lazy">
+        </div>
+      </article>
+
+      <article class="stack-card" style="--c1:#062a49;--c2:#1fb6ef">
+        <div class="stack-text">
+          <p class="stack-num">04</p>
+          <p class="tag">Stratégie social media · Emploi actuel</p>
+          <h3>Kom'Arts</h3>
+          <p>Stratégie Facebook 100 % organique pour mon employeur : objectifs, calendrier éditorial et suivi des chiffres, sans aucun budget publicitaire.</p>
+          <div class="kpis"><div><strong>+130</strong><span>abonnés en 10 mois</span></div><div><strong>55,7K</strong><span>vues cumulées</span></div><div><strong>0 F</strong><span>de publicité</span></div></div>
+          <button type="button" class="link-arrow" data-gallery-open="komarts-proof">Voir la stratégie <svg width="16" height="16"><use href="#i-arrow"/></svg></button>
+        </div>
+        <div class="stack-media stack-media-doc">
+          <img src="assets/img/proofs/kom-arts/cover.jpg" alt="Couverture de la stratégie social media Kom'Arts" loading="lazy">
+        </div>
+      </article>
+
+      <article class="stack-card" style="--c1:#0b1d3d;--c2:#e9b949">
+        <div class="stack-text">
+          <p class="stack-num">05</p>
+          <p class="tag">Stratégie SMM · Événement</p>
+          <h3>Benin Blockchain Days 2027</h3>
+          <p>Stratégie complète du premier événement blockchain du Bénin (6 au 8 février 2027) : cibles, objectifs SMART, calendrier de 150 posts et budget.</p>
+          <div class="kpis"><div><strong>6</strong><span>mois de campagne</span></div><div><strong>150</strong><span>publications</span></div><div><strong>8</strong><span>canaux</span></div></div>
+          <button type="button" class="link-arrow" data-gallery-open="bbd-proof">Voir le dossier <svg width="16" height="16"><use href="#i-arrow"/></svg></button>
+        </div>
+        <div class="stack-media stack-media-doc">
+          <img src="assets/img/proofs/bbd2027/cover.jpg" alt="Couverture de la stratégie social media du Benin Blockchain Days 2027" loading="lazy">
+        </div>
+      </article>
+
+      <article class="stack-card" style="--c1:#1a1a1a;--c2:#ffcb05">
+        <div class="stack-text">
+          <p class="stack-num">06</p>
+          <p class="tag">Examen pratique · MTN TITA Digital Skills</p>
+          <h3>Défi 125 contenus</h3>
+          <p>125 contenus publiés en conditions réelles sur 6 plateformes, avec une preuve visuelle pour chaque publication. Livrable certifiant du programme.</p>
+          <div class="kpis"><div><strong>125/125</strong><span>contenus</span></div><div><strong>6</strong><span>plateformes</span></div><div><strong>94 687</strong><span>impressions LinkedIn</span></div></div>
+          <button type="button" class="link-arrow" data-gallery-open="defi-proof">Voir le dossier <svg width="16" height="16"><use href="#i-arrow"/></svg></button>
+        </div>
+        <div class="stack-media stack-media-doc">
+          <img src="assets/img/proofs/defi-125/cover.jpg" alt="Couverture du livrable Challenge des 125 contenus" loading="lazy">
+        </div>
+      </article>
+    </div>
+
+    <div class="container">
+      <h3 class="docs-title">Autres dossiers stratégiques</h3>
+      <div class="docs-strip">
+        <button type="button" class="doc" data-gallery-open="uac-proof"><img src="assets/img/proofs/uac/cover.jpg" alt="Couverture du dossier stratégie social media de l'UAC" loading="lazy"><span><strong>UAC</strong>108K abonnés audités, objectifs SMART</span></button>
+        <button type="button" class="doc" data-gallery-open="panda-proof"><img src="assets/img/proofs/panda-ticket/cover.jpg" alt="Couverture de la stratégie social media de Panda Ticket" loading="lazy"><span><strong>Panda Ticket</strong>Plan à 3 mois, tunnel organisateurs</span></button>
+        <button type="button" class="doc" data-gallery-open="pulse-proof"><img src="assets/img/proofs/football-pulse/cover.jpg" alt="Couverture de la stratégie TikTok Football Pulse" loading="lazy"><span><strong>Football Pulse</strong>Stratégie TikTok, 22 pages</span></button>
+        <button type="button" class="doc" data-gallery-open="guide-proof"><img src="assets/img/proofs/guide-12-points/cover.jpg" alt="Couverture du guide 12 points essentiels des réseaux sociaux" loading="lazy"><span><strong>Guide client</strong>12 points essentiels des réseaux sociaux</span></button>
+      </div>
+      <a class="all-projects" href="https://gnonlonfounwilfried9-dotcom.github.io/projets/" target="_blank" rel="noopener" data-magnetic>Tous mes projets en détail <svg width="18" height="18"><use href="#i-external"/></svg></a>
+    </div>
+  </section>
+
+  <!-- 06 AFFICHES -->
+  <section id="affiches" class="section-posters">
+    <div class="posters-head container">
+      <p class="eyebrow eyebrow-yellow"><span>06</span>Graphisme et affiches</p>
+      <h2 class="big-title" data-split>Des affiches <em>qui arrêtent le pouce</em></h2>
+    </div>
+    <div class="posters-pin" id="postersPin">
+      <div class="posters-track" id="postersTrack">
+        <div class="brand-panel" data-brand="wilactu" style="--accent:#f6c21b">
+          <div class="brand-info">
+            <p class="brand-count">24 visuels</p>
+            <h3>WILACTU</h3>
+            <p>Charte bleu nuit et jaune, typographie condensée, photo plein cadre. Quiz, débats, chiffres et mémoire du sport : un format par rubrique.</p>
+            <button type="button" class="btn btn-small" data-brand-gallery="wilactu"><svg width="16" height="16"><use href="#i-grid"/></svg> Tout voir</button>
+          </div>
+          <div class="poster-wall" data-wall="wilactu" data-count="24"></div>
+        </div>
+        <div class="brand-panel" data-brand="panda" style="--accent:#ffcf24">
+          <div class="brand-info">
+            <p class="brand-count">24 visuels</p>
+            <h3>Panda Ticket</h3>
+            <p>Une mascotte panda, des scènes de vie béninoises, des conversations WhatsApp et des chiffres géants. L'humour au service de la billetterie.</p>
+            <button type="button" class="btn btn-small" data-brand-gallery="panda"><svg width="16" height="16"><use href="#i-grid"/></svg> Tout voir</button>
+          </div>
+          <div class="poster-wall" data-wall="panda" data-count="24"></div>
+        </div>
+        <div class="brand-panel" data-brand="roots" style="--accent:#38c6f4">
+          <div class="brand-info">
+            <p class="brand-count">12 fiches</p>
+            <h3>Roots Catalogue</h3>
+            <p>Une fiche par article de la boutique : produit sur décor photo, caractéristiques, stock et prix réels en FCFA, signature des quatre pays.</p>
+            <button type="button" class="btn btn-small" data-brand-gallery="roots"><svg width="16" height="16"><use href="#i-grid"/></svg> Tout voir</button>
+          </div>
+          <div class="poster-wall" data-wall="roots" data-count="12"></div>
+        </div>
+      </div>
+      <div class="posters-progress" aria-hidden="true"><span id="postersProgress"></span></div>
+    </div>
+  </section>
+
+  <!-- 07 DERRIÈRE LA CAMÉRA -->
+  <section id="createur" class="section section-creator">
+    <div class="creator-marquee" aria-hidden="true"><div class="marquee-track"><span>Derrière la caméra</span><svg><use href="#i-asterisk"/></svg><span>Derrière la caméra</span><svg><use href="#i-asterisk"/></svg><span>Derrière la caméra</span><svg><use href="#i-asterisk"/></svg></div></div>
+    <div class="container creator-layout">
+      <div class="creator-stage" aria-hidden="true">
+        <div class="creator-disc"></div>
+        <img class="cut cut-a" src="assets/img/cut/filme-solo.webp" alt="" loading="lazy">
+        <img class="cut cut-b" src="assets/img/cut/phone-bleu.webp" alt="" loading="lazy">
+        <img class="cut cut-c" src="assets/img/cut/filme-duo.webp" alt="" loading="lazy">
+        <span class="rec"><i></i>REC</span>
+      </div>
+      <div>
+        <p class="eyebrow"><span>07</span>Création de contenu</p>
+        <h2 class="big-title" data-split>Je tourne, <em>je monte, je publie</em></h2>
+        <p class="section-lead">Sur le terrain avec mon téléphone : événements, meetups, coulisses. Je capte l'instant, je le monte en format court et je le diffuse sur la bonne plateforme, au bon moment.</p>
+        <ul class="creator-steps">
+          <li><span>01</span><div><h3>Capter</h3><p>Photos et vidéos verticales sur place, son propre, plans variés.</p></div></li>
+          <li><span>02</span><div><h3>Monter</h3><p>CapCut, sous-titres, rythme, musique et habillage de marque.</p></div></li>
+          <li><span>03</span><div><h3>Diffuser</h3><p>Texte adapté à chaque réseau, hook, appel à l'action, programmation.</p></div></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- 4. PROFIL 1 : COMMUNITY MANAGER -->
-  <section id="community-manager" class="section section-alt">
+  <!-- 08 VIDÉOS -->
+  <section id="videos" class="section section-videos">
     <div class="container">
-      <p class="eyebrow"><span class="eyebrow-index">05</span>Profil 1</p>
-      <h2>Community Manager &amp; Créateur de contenu</h2>
+      <p class="eyebrow"><span>08</span>Vidéo, motion et IA</p>
+      <h2 class="big-title" data-split>Des vidéos <em>qui racontent</em></h2>
+      <p class="section-lead">Motion design, vidéos générées avec Google Flow et voix off synthétique : je produis des formats courts prêts pour les réels, de l'idée au montage final.</p>
 
-      <h3 class="subhead">Ce que je fais</h3>
-      <p>Pages Facebook, TikTok, Instagram et WhatsApp Business&nbsp;: ligne éditoriale, production, animation, suivi.</p>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon"><svg class="icon" width="22" height="22"><use href="#icon-chart"/></svg></div>
-          <h3>Stratégie social media</h3>
-          <p>Audit, cible, personas, calendrier</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon"><svg class="icon" width="22" height="22"><use href="#icon-video"/></svg></div>
-          <h3>Création de contenu</h3>
-          <p>Vidéos courtes, visuels, rédaction</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon"><svg class="icon" width="22" height="22"><use href="#icon-users"/></svg></div>
-          <h3>Animation</h3>
-          <p>Réponses, relance, gestion de communauté</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon"><svg class="icon" width="22" height="22"><use href="#icon-monitor"/></svg></div>
-          <h3>Suivi</h3>
-          <p>Indicateurs et ajustements</p>
-        </div>
+      <h3 class="sub">Motion design</h3>
+      <div class="reels">
+        <button type="button" class="reel" data-video-open="assets/video/roots-drones.mp4" data-cursor="Lecture">
+          <video src="assets/video/roots-drones.mp4" poster="assets/video/roots-drones.jpg" muted loop playsinline preload="none" data-autoplay></video>
+          <span class="reel-info"><small>Roots Technologies</small><strong>Spectacle de drones</strong><em>Motion design 3D</em></span>
+        </button>
+        <button type="button" class="reel" data-video-open="assets/video/roots-motion.mp4" data-cursor="Lecture">
+          <video src="assets/video/roots-motion.mp4" poster="assets/video/roots-motion.jpg" muted loop playsinline preload="none" data-autoplay></video>
+          <span class="reel-info"><small>Roots Technologies</small><strong>Nos expertises</strong><em>Motion design néon</em></span>
+        </button>
+        <button type="button" class="reel" data-video-open="assets/video/roots-infra-ia.mp4" data-cursor="Lecture">
+          <video src="assets/video/roots-infra-ia.mp4" poster="assets/video/roots-infra-ia.jpg" muted loop playsinline preload="none" data-autoplay></video>
+          <span class="reel-info"><small>Roots Technologies</small><strong>Infrastructure</strong><em>Vidéo générée par IA</em></span>
+        </button>
+        <button type="button" class="reel" data-video-open="assets/video/agence-wilfried.mp4" data-cursor="Lecture">
+          <video src="assets/video/agence-wilfried.mp4" poster="assets/video/agence-wilfried.jpg" muted loop playsinline preload="none" data-autoplay></video>
+          <span class="reel-info"><small>WILACTU</small><strong>L'agence qui travaille seule</strong><em>Motion et voix off IA</em></span>
+        </button>
+        <button type="button" class="reel" data-video-open="assets/video/roots-portables.mp4" data-cursor="Lecture">
+          <video src="assets/video/roots-portables.mp4" poster="assets/video/roots-portables.jpg" muted loop playsinline preload="none" data-autoplay></video>
+          <span class="reel-info"><small>Roots Technologies</small><strong>Portables en stock</strong><em>Animation produit</em></span>
+        </button>
       </div>
 
-      <h3 class="subhead">Réalisations</h3>
-      <p class="section-intro">Des résultats qui viennent d'un travail organique, sans budget publicitaire.</p>
-
-      <div class="mini-grid">
-        <article class="card">
-          <div class="card-icon"><svg class="icon" width="20" height="20"><use href="#icon-users"/></svg></div>
-          <p class="card-tag">Facebook</p>
-          <h4>Deltrax Africa</h4>
-          <div class="card-stats">
-            <div class="card-stat"><strong>0→10</strong><span>interactions / pub</span></div>
-            <div class="card-stat"><strong>113</strong><span>membres WhatsApp</span></div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-icon"><svg class="icon" width="20" height="20"><use href="#icon-message"/></svg></div>
-          <p class="card-tag">WhatsApp</p>
-          <h4>Communauté Pi Network</h4>
-          <div class="card-stats">
-            <div class="card-stat"><strong>900+</strong><span>membres au pic</span></div>
-          </div>
-        </article>
+      <h3 class="sub">Porte-parole IA avec Google Flow</h3>
+      <div class="flow-grid" id="flowGrid">
+        <button type="button" class="flow" data-video-open="assets/video/flow-roots-offre.mp4" data-cursor="Écouter">
+          <video src="assets/video/flow-roots-offre.mp4" poster="assets/video/flow-roots-offre.jpg" muted loop playsinline preload="none" data-autoplay></video>
+          <span class="flow-sub">« Chez Roots, nous fournissons des ordinateurs professionnels, mais aussi des solutions réseau, sécurité et maintenance. »</span>
+          <span class="reel-info"><small>Roots Technologies</small><strong>Porte-parole, l'offre</strong></span>
+        </button>
+        <button type="button" class="flow" data-video-open="assets/video/flow-roots-dell.mp4" data-cursor="Écouter">
+          <video src="assets/video/flow-roots-dell.mp4" poster="assets/video/flow-roots-dell.jpg" muted loop playsinline preload="none" data-autoplay></video>
+          <span class="flow-sub">« Vous cherchez un ordinateur professionnel compact ? Découvrez le Dell Pro 14 Essential. »</span>
+          <span class="reel-info"><small>Roots Technologies</small><strong>Porte-parole, le produit</strong></span>
+        </button>
+        <button type="button" class="flow" data-video-open="assets/video/flow-roots-mobilite.mp4" data-cursor="Écouter">
+          <video src="assets/video/flow-roots-mobilite.mp4" poster="assets/video/flow-roots-mobilite.jpg" muted loop playsinline preload="none" data-autoplay></video>
+          <span class="flow-sub">« Son format 14 pouces offre un bon équilibre entre confort de travail et mobilité. »</span>
+          <span class="reel-info"><small>Roots Technologies</small><strong>Porte-parole, l'usage</strong></span>
+        </button>
+        <button type="button" class="flow" data-video-open="assets/video/flow-emma.mp4" data-cursor="Écouter">
+          <video src="assets/video/flow-emma.mp4" poster="assets/video/flow-emma.jpg" muted loop playsinline preload="none" data-autoplay></video>
+          <span class="flow-sub">« Salut, je m'appelle Emma, je suis l'agent et partenaire de Wilfried. »</span>
+          <span class="reel-info"><small>Personnage IA</small><strong>Emma, mon avatar</strong></span>
+        </button>
+        <button type="button" class="flow" data-video-open="assets/video/flow-emma-rue.mp4" data-cursor="Écouter">
+          <video src="assets/video/flow-emma-rue.mp4" poster="assets/video/flow-emma-rue.jpg" muted loop playsinline preload="none" data-autoplay></video>
+          <span class="flow-sub">« Je suis béninoise et je fais un effort pour présenter mes tresses africaines. »</span>
+          <span class="reel-info"><small>Personnage IA</small><strong>Emma en ville</strong></span>
+        </button>
       </div>
 
-      <div class="docs-grid">
-        <article class="card card-wide doc-card">
-          <button type="button" class="doc-card-media gallery-item" data-full="assets/img/proofs/defi-125/cover.jpg">
-            <img src="assets/img/proofs/defi-125/cover.jpg" alt="Page de couverture du livrable Challenge des 125 contenus">
-          </button>
-          <div class="doc-card-body">
-            <p class="card-tag">Examen pratique · MTN TITA Digital Skills</p>
-            <h4>Défi 125 contenus</h4>
-            <div class="card-stats">
-              <div class="card-stat"><strong>125/125</strong><span>contenus publiés</span></div>
-              <div class="card-stat"><strong>6</strong><span>plateformes</span></div>
-              <div class="card-stat"><strong>94 687</strong><span>impressions LinkedIn</span></div>
-            </div>
-            <p class="card-caption">Livrable certifiant (60 retenus sur 1&nbsp;500 candidatures), preuve visuelle pour chaque publication.</p>
-            <div class="gallery gallery-compact">
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/defi-125/tableau-de-bord.jpg">
-                <img src="assets/img/proofs/defi-125/tableau-de-bord.jpg" alt="Extrait du tableau de bord des 125 contenus avec preuves visuelles">
-              </button>
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/defi-125/bilan-critique.jpg">
-                <img src="assets/img/proofs/defi-125/bilan-critique.jpg" alt="Bilan critique : tops et flops du challenge 125 contenus">
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <article class="card card-wide doc-card">
-          <button type="button" class="doc-card-media gallery-item" data-full="assets/img/proofs/uac/cover.jpg">
-            <img src="assets/img/proofs/uac/cover.jpg" alt="Couverture du dossier stratégie social media de l'UAC">
-          </button>
-          <div class="doc-card-body">
-            <p class="card-tag">Stratégie · MTN TITA</p>
-            <h4>Dossier stratégie social media UAC</h4>
-            <div class="card-stats">
-              <div class="card-stat"><strong>108K</strong><span>abonnés Facebook</span></div>
-              <div class="card-stat"><strong>66K</strong><span>abonnés LinkedIn</span></div>
-              <div class="card-stat"><strong>6</strong><span>canaux audités</span></div>
-            </div>
-            <p class="card-caption">Objectifs SMART, budget et calendrier éditorial. Réalisé en groupe pour le programme MTN TITA.</p>
-            <div class="gallery gallery-compact">
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/uac/etat-des-lieux-facebook.jpg">
-                <img src="assets/img/proofs/uac/etat-des-lieux-facebook.jpg" alt="Audit de l'état des lieux Facebook de l'UAC : 108 000 abonnés">
-              </button>
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/uac/objectifs.jpg">
-                <img src="assets/img/proofs/uac/objectifs.jpg" alt="Tableau des objectifs SMART pour la stratégie social media de l'UAC">
-              </button>
-              <button type="button" class="gallery-item" data-full="assets/img/uac/bus-universitaires.jpg">
-                <img src="assets/img/uac/bus-universitaires.jpg" alt="Story Instagram annonçant le déploiement des bus universitaires de l'UAC">
-              </button>
-              <button type="button" class="gallery-item" data-full="assets/img/uac/sondage-campus.jpg">
-                <img src="assets/img/uac/sondage-campus.jpg" alt="Post sondage UAC sur les lieux préférés du campus">
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <article class="card card-wide doc-card">
-          <button type="button" class="doc-card-media gallery-item" data-full="assets/img/proofs/football-pulse/cover.jpg">
-            <img src="assets/img/proofs/football-pulse/cover.jpg" alt="Couverture de la stratégie TikTok détaillée Football Pulse">
-          </button>
-          <div class="doc-card-body">
-            <p class="card-tag">Stratégie TikTok · 22 pages</p>
-            <h4>Football Pulse&nbsp;: plan à 3 mois</h4>
-            <div class="card-stats">
-              <div class="card-stat"><strong>5 331</strong><span>vues cumulées</span></div>
-              <div class="card-stat"><strong>410</strong><span>vues en moyenne</span></div>
-              <div class="card-stat"><strong>1 406</strong><span>record</span></div>
-            </div>
-            <p class="card-caption">5 piliers de contenu, calendrier jour par jour calé sur la Coupe du Monde 2026.</p>
-            <div class="gallery gallery-compact">
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/football-pulse/chiffres-cles.jpg">
-                <img src="assets/img/proofs/football-pulse/chiffres-cles.jpg" alt="Chiffres clés réels de la page Football Pulse : 19 abonnés, 320 mentions J'aime, 13 vidéos">
-              </button>
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/football-pulse/objectifs.jpg">
-                <img src="assets/img/proofs/football-pulse/objectifs.jpg" alt="Tableau des cinq objectifs à trois mois pour Football Pulse">
-              </button>
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/football-pulse/calendrier-aout.jpg">
-                <img src="assets/img/proofs/football-pulse/calendrier-aout.jpg" alt="Calendrier éditorial jour par jour d'août 2026 pour Football Pulse">
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <article class="card card-wide doc-card">
-          <button type="button" class="doc-card-media gallery-item" data-full="assets/img/proofs/kom-arts/cover.jpg">
-            <img src="assets/img/proofs/kom-arts/cover.jpg" alt="Couverture de la stratégie social media Kom'Arts">
-          </button>
-          <div class="doc-card-body">
-            <p class="card-tag">Stratégie social media · Emploi actuel</p>
-            <h4>Kom'Arts&nbsp;: croissance 100&nbsp;% organique</h4>
-            <div class="card-stats">
-              <div class="card-stat"><strong>132</strong><span>abonnés</span></div>
-              <div class="card-stat"><strong>+130</strong><span>en 10 mois</span></div>
-              <div class="card-stat"><strong>55,7K</strong><span>vues cumulées</span></div>
-            </div>
-            <p class="card-caption">Stratégie pour la page Facebook de mon employeur actuel, sans aucun budget publicitaire.</p>
-            <div class="gallery gallery-compact">
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/kom-arts/chiffres-cles.jpg">
-                <img src="assets/img/proofs/kom-arts/chiffres-cles.jpg" alt="Chiffres clés Facebook Kom'Arts : 132 abonnés, +130 en 10 mois, 55,7K vues">
-              </button>
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/kom-arts/objectifs.jpg">
-                <img src="assets/img/proofs/kom-arts/objectifs.jpg" alt="Objectifs 100% organiques de Kom'Arts : notoriété, engagement, conversion">
-              </button>
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/kom-arts/calendrier-editorial.jpg">
-                <img src="assets/img/proofs/kom-arts/calendrier-editorial.jpg" alt="Calendrier éditorial de Kom'Arts, 3 publications par semaine">
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <article class="card card-wide doc-card">
-          <button type="button" class="doc-card-media gallery-item" data-full="assets/img/proofs/guide-12-points/cover.jpg">
-            <img src="assets/img/proofs/guide-12-points/cover.jpg" alt="Couverture du guide 12 points essentiels pour comprendre les réseaux sociaux">
-          </button>
-          <div class="doc-card-body">
-            <p class="card-tag">Guide de collaboration</p>
-            <h4>12 points essentiels des réseaux sociaux</h4>
-            <div class="card-stats">
-              <div class="card-stat"><strong>12</strong><span>points clés</span></div>
-            </div>
-            <p class="card-caption">Pour aligner mes clients sur les bases d'une stratégie social media, sur données plutôt que sur opinions.</p>
-            <div class="gallery gallery-compact">
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/guide-12-points/point-05-cadrage.jpg">
-                <img src="assets/img/proofs/guide-12-points/point-05-cadrage.jpg" alt="Point 5 du guide : des objectifs clairs avant toute action">
-              </button>
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/guide-12-points/conclusion.jpg">
-                <img src="assets/img/proofs/guide-12-points/conclusion.jpg" alt="Page de conclusion du guide 12 points essentiels">
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <article class="card card-wide doc-card">
-          <button type="button" class="doc-card-media gallery-item" data-full="assets/img/proofs/bbd2027/cover.jpg">
-            <img src="assets/img/proofs/bbd2027/cover.jpg" alt="Couverture de la stratégie social media du Benin Blockchain Days 2027">
-          </button>
-          <div class="doc-card-body">
-            <p class="card-tag">Stratégie SMM · Événement</p>
-            <h4>Benin Blockchain Days 2027</h4>
-            <div class="card-stats">
-              <div class="card-stat"><strong>6 mois</strong><span>de campagne</span></div>
-              <div class="card-stat"><strong>150</strong><span>publications planifiées</span></div>
-              <div class="card-stat"><strong>8</strong><span>canaux orchestrés</span></div>
-            </div>
-            <p class="card-caption">Stratégie complète du 1<sup>er</sup> événement blockchain du Bénin (6-8 février 2027)&nbsp;: cibles, objectifs SMART, calendrier de 150 posts et budget.</p>
-            <div class="gallery gallery-compact">
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/bbd2027/objectifs.jpg">
-                <img src="assets/img/proofs/bbd2027/objectifs.jpg" alt="Objectifs SMART du BBD2027 : notoriété, engagement, conversion">
-              </button>
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/bbd2027/calendrier.jpg">
-                <img src="assets/img/proofs/bbd2027/calendrier.jpg" alt="Calendrier éditorial du BBD2027, 150 publications sur 6 phases">
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <article class="card card-wide doc-card">
-          <button type="button" class="doc-card-media gallery-item" data-full="assets/img/proofs/panda-ticket/cover.jpg">
-            <img src="assets/img/proofs/panda-ticket/cover.jpg" alt="Couverture de la stratégie social media de Panda Ticket">
-          </button>
-          <div class="doc-card-body">
-            <p class="card-tag">Stratégie SMM · Billetterie</p>
-            <h4>Panda Ticket&nbsp;: plan à 3 mois</h4>
-            <div class="card-stats">
-              <div class="card-stat"><strong>+6 000</strong><span>abonnés visés</span></div>
-              <div class="card-stat"><strong>20</strong><span>organisateurs à convertir</span></div>
-              <div class="card-stat"><strong>5 réseaux</strong><span>audités</span></div>
-            </div>
-            <p class="card-caption">Stratégie de billetterie digitale centrée sur la conversion des organisateurs&nbsp;: archétype, tunnel de vente, calendrier daté et WhatsApp Business.</p>
-            <div class="gallery gallery-compact">
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/panda-ticket/objectifs.jpg">
-                <img src="assets/img/proofs/panda-ticket/objectifs.jpg" alt="Trois objectifs mesurables de Panda Ticket : notoriété, engagement, conversion">
-              </button>
-              <button type="button" class="gallery-item" data-full="assets/img/proofs/panda-ticket/calendrier.jpg">
-                <img src="assets/img/proofs/panda-ticket/calendrier.jpg" alt="Calendrier éditorial d'août 2026 pour Panda Ticket">
-              </button>
-            </div>
-          </div>
-        </article>
+      <div class="wides">
+        <button type="button" class="wide" data-video-open="assets/video/roots-film.mp4" data-cursor="Lecture">
+          <video src="assets/video/roots-film.mp4" poster="assets/video/roots-film.jpg" muted loop playsinline preload="none" data-autoplay></video>
+          <span class="reel-info"><small>Roots Technologies</small><strong>Film institutionnel 45 secondes</strong><em>Animation et data</em></span>
+        </button>
+        <button type="button" class="wide" data-video-open="assets/video/freedom-club.mp4" data-cursor="Lecture">
+          <video src="assets/video/freedom-club.mp4" poster="assets/video/freedom-club.jpg" muted loop playsinline preload="none" data-autoplay></video>
+          <span class="reel-info"><small>Freedom Club</small><strong>Publicité badminton</strong><em>Montage et typographie animée</em></span>
+        </button>
       </div>
-
     </div>
   </section>
 
-  <!-- 5. PROFIL 2 : AMBASSADEUR WEB3 -->
-  <section id="ambassadeur-web3" class="section theme-dark">
+  <!-- 09 SERVICES -->
+  <section id="services" class="section section-services">
     <div class="container">
-      <p class="eyebrow"><span class="eyebrow-index">06</span>Profil 2</p>
-      <h2>Ambassadeur / KOL Web3</h2>
-
-      <h3 class="subhead">Ce que je fais</h3>
-      <p>Ambassadeur et créateur de contenu pour des projets crypto&nbsp;: faire connaître, expliquer, donner envie de s'inscrire.</p>
-
-      <h3 class="subhead">Ce que j'ai obtenu</h3>
-      <div class="chart-block">
-        <p class="chart-title">Personnes affiliées par plateforme</p>
-        <div class="bar-chart" data-max="24">
-          <div class="bar-chart-row" data-value="24">
-            <span class="bar-chart-label">Coin8 (record, 3 jours)</span>
-            <div class="bar-chart-track"><div class="bar-chart-fill"></div></div>
-            <span class="bar-chart-value">24</span>
-          </div>
-          <div class="bar-chart-row" data-value="10">
-            <span class="bar-chart-label">Binance</span>
-            <div class="bar-chart-track"><div class="bar-chart-fill"></div></div>
-            <span class="bar-chart-value">10</span>
-          </div>
-          <div class="bar-chart-row" data-value="7">
-            <span class="bar-chart-label">Bitget</span>
-            <div class="bar-chart-track"><div class="bar-chart-fill"></div></div>
-            <span class="bar-chart-value">7</span>
-          </div>
+      <div class="services-head">
+        <img class="services-cut" src="assets/img/cut/bureau.webp" alt="Wilfried au travail sur son ordinateur" loading="lazy">
+        <div>
+          <p class="eyebrow"><span>09</span>Services</p>
+          <h2 class="big-title" data-split>Ce que <em>je fais pour vous</em></h2>
         </div>
       </div>
-      <p>Des chiffres modestes à l'échelle mondiale, mais qui montrent une vraie capacité à convertir de l'attention en inscriptions au Bénin. Mes publications sur X ont aussi redirigé du monde vers ces communautés.</p>
-
-      <h3 class="subhead">Sur le terrain</h3>
-      <div class="gallery gallery-wide">
-        <button type="button" class="gallery-item" data-full="assets/img/web3/binance-angels.jpg">
-          <img src="assets/img/web3/binance-angels.jpg" alt="Wilfried avec l'équipe Binance Angels lors d'un événement">
-          <span class="gallery-caption">Binance Angels</span>
-        </button>
-        <button type="button" class="gallery-item" data-full="assets/img/web3/bitget-beyond-2025.jpg">
-          <img src="assets/img/web3/bitget-beyond-2025.jpg" alt="Wilfried à l'événement Bitget Beyond 2025">
-          <span class="gallery-caption">Bitget Beyond 2025</span>
-        </button>
-        <button type="button" class="gallery-item" data-full="assets/img/web3/apero-crypto-cotonou.jpg">
-          <img src="assets/img/web3/apero-crypto-cotonou.jpg" alt="Wilfried à l'Apéro Crypto de Cotonou">
-          <span class="gallery-caption">Apéro Crypto, Cotonou</span>
-        </button>
-        <button type="button" class="gallery-item" data-full="assets/img/web3/hope-with-bitcoin-meetup.jpg">
-          <img src="assets/img/web3/hope-with-bitcoin-meetup.jpg" alt="Wilfried lors d'un meetup de la communauté Hope With Bitcoin">
-          <span class="gallery-caption">Meetup Hope With Bitcoin</span>
-        </button>
-      </div>
-
-      <h3 class="subhead">Projets accompagnés</h3>
-      <ul class="chip-list chip-list-web3">
-        <li class="chip-current">K2 Powerblock · actuel</li>
-        <li>CoinW</li>
-        <li>Rally</li>
-        <li>RobuSnipe</li>
-        <li>Multibank.io</li>
-        <li>Cache Wallet</li>
-        <li>Coin8</li>
-        <li>Bitget</li>
-        <li>Binance</li>
+      <ul class="services">
+        <li class="service" data-preview="assets/work/wilactu/wilactu-09.webp"><span class="service-num">01</span><h3>Stratégie social media</h3><p>Audit, cibles, objectifs SMART, calendrier et budget.</p><svg class="service-arrow" width="28" height="28"><use href="#i-arrow"/></svg></li>
+        <li class="service" data-preview="assets/work/panda/panda-10.webp"><span class="service-num">02</span><h3>Community management</h3><p>Animation, modération, réponses et fidélisation au quotidien.</p><svg class="service-arrow" width="28" height="28"><use href="#i-arrow"/></svg></li>
+        <li class="service" data-preview="assets/work/wilactu/wilactu-04.webp"><span class="service-num">03</span><h3>Affiches et identité visuelle</h3><p>Gabarits de marque, affiches, carrousels, visuels IA.</p><svg class="service-arrow" width="28" height="28"><use href="#i-arrow"/></svg></li>
+        <li class="service" data-preview="assets/video/roots-drones.jpg"><span class="service-num">04</span><h3>Vidéo et motion design IA</h3><p>Réels, films courts, porte-parole Google Flow et voix off.</p><svg class="service-arrow" width="28" height="28"><use href="#i-arrow"/></svg></li>
+        <li class="service" data-preview="assets/video/agence-wilfried.jpg"><span class="service-num">05</span><h3>Automatisation IA</h3><p>Un agent qui rédige, fait valider par mail et publie seul sur vos pages.</p><svg class="service-arrow" width="28" height="28"><use href="#i-arrow"/></svg></li>
+        <li class="service" data-preview="assets/img/web3/bitget-beyond-2025.jpg"><span class="service-num">06</span><h3>Ambassadeur Web3</h3><p>Vulgarisation crypto, contenus et conversion de communautés.</p><svg class="service-arrow" width="28" height="28"><use href="#i-arrow"/></svg></li>
       </ul>
-      <p class="card-note">+ premier meetup Bybit d'Afrique francophone. Sur chaque projet&nbsp;: de vrais membres apportés, pas seulement de la visibilité.</p>
+    </div>
+    <div class="service-preview" id="servicePreview" aria-hidden="true"><img src="" alt=""></div>
+  </section>
+
+  <!-- 10 WEB3 -->
+  <section id="web3" class="section section-web3">
+    <div class="coins" aria-hidden="true"><span>₿</span><span>Ξ</span><span>◎</span><span>₿</span><span>Ξ</span><span>◎</span></div>
+    <div class="container">
+      <p class="eyebrow eyebrow-yellow"><span>10</span>Profil Web3</p>
+      <h2 class="big-title" data-split>Ambassadeur et <em>KOL Web3</em></h2>
+      <div class="web3-grid">
+        <div>
+          <p class="section-lead">Ambassadeur et créateur de contenu pour des projets crypto : faire connaître, expliquer, donner envie de s'inscrire. De vrais membres apportés, pas seulement de la visibilité.</p>
+          <div class="bars" data-max="24">
+            <p class="bars-title">Personnes affiliées par plateforme</p>
+            <div class="bar" data-value="24"><span class="bar-label">Coin8, record en 3 jours</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-value">24</span></div>
+            <div class="bar" data-value="10"><span class="bar-label">Binance</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-value">10</span></div>
+            <div class="bar" data-value="7"><span class="bar-label">Bitget</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-value">7</span></div>
+          </div>
+          <p class="note">Également présent au premier meetup Bybit d'Afrique francophone.</p>
+        </div>
+        <div class="web3-photos">
+          <button type="button" class="photo photo-a" data-gallery-open="web3" data-index="0"><img src="assets/img/web3/bitget-beyond-2025.jpg" alt="Wilfried à Bitget Beyond 2025" loading="lazy"><span>Bitget Beyond 2025</span></button>
+          <button type="button" class="photo photo-b" data-gallery-open="web3" data-index="1"><img src="assets/img/web3/binance-angels.jpg" alt="Wilfried avec l'équipe Binance Angels" loading="lazy"><span>Binance Angels</span></button>
+          <button type="button" class="photo photo-c" data-gallery-open="web3" data-index="2"><img src="assets/img/web3/hope-with-bitcoin-meetup.jpg" alt="Wilfried au meetup Hope With Bitcoin" loading="lazy"><span>Meetup Hope With Bitcoin</span></button>
+        </div>
+      </div>
+      <div class="chips-marquee" aria-hidden="true"><div class="marquee-track">
+        <span class="chip-on">K2 Powerblock, actuel</span><span>CoinW</span><span>Rally</span><span>RobuSnipe</span><span>Multibank.io</span><span>Cache Wallet</span><span>Coin8</span><span>Bitget</span><span>Binance</span><span>Bybit</span>
+      </div></div>
     </div>
   </section>
 
-  <!-- 6. COMPÉTENCES -->
-  <section id="competences" class="section">
-    <div class="container">
-      <p class="eyebrow"><span class="eyebrow-index">07</span>Savoir-faire</p>
-      <h2>Mes compétences</h2>
-      <p class="section-intro">Chaque compétence vient du terrain ou d'une formation, rien de théorique.</p>
-
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon"><svg class="icon" width="22" height="22"><use href="#icon-chart"/></svg></div>
-          <h3>Crypto et Web3</h3>
-          <p>Vulgarisation crypto, veille marché, accompagnement de communautés (Binance, Bybit, K2 Powerblock).</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon"><svg class="icon" width="22" height="22"><use href="#icon-users"/></svg></div>
-          <h3>Gestion de communauté</h3>
-          <p>Animation quotidienne, modération, fidélisation (Deltrax Africa, Pi Network, Hope With Bitcoin).</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon"><svg class="icon" width="22" height="22"><use href="#icon-video"/></svg></div>
-          <h3>Création de contenu</h3>
-          <p>Vidéos courtes, visuels, rédaction, adaptés à chaque plateforme.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon"><svg class="icon" width="22" height="22"><use href="#icon-sparkles"/></svg></div>
-          <h3>Prompt engineering (IA)</h3>
-          <p>Utilisation de l'IA (Claude, ChatGPT) pour accélérer la production et la stratégie de contenu.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon"><svg class="icon" width="22" height="22"><use href="#icon-wand"/></svg></div>
-          <h3>IA créative</h3>
-          <p>Génération de visuels et de scripts assistée par IA, sans perdre la touche humaine.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon"><svg class="icon" width="22" height="22"><use href="#icon-image"/></svg></div>
-          <h3>Génération d'images et vidéos IA</h3>
-          <p>Création de visuels et de vidéos par IA générative pour illustrer une marque ou une campagne.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon"><svg class="icon" width="22" height="22"><use href="#icon-code"/></svg></div>
-          <h3>Vibe coding</h3>
-          <p>Conception d'interfaces et de petits outils web guidée par l'IA, du prototype au résultat en ligne.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon"><svg class="icon" width="22" height="22"><use href="#icon-message"/></svg></div>
-          <h3>Narration</h3>
-          <p>Storytelling qui capte l'attention et reste en mémoire.</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon"><svg class="icon" width="22" height="22"><use href="#icon-globe"/></svg></div>
-          <h3>WordPress</h3>
-          <p>Création et gestion de sites vitrines, certifié LEARNIO.</p>
-        </div>
+  <!-- 11 PARCOURS -->
+  <section id="parcours" class="section section-path">
+    <div class="container container-mid">
+      <p class="eyebrow"><span>11</span>Parcours</p>
+      <h2 class="big-title" data-split>Du terrain <em>à l'IA</em></h2>
+      <div class="path">
+        <div class="path-line" aria-hidden="true"><span id="pathFill"></span><i class="path-spark"></i></div>
+        <ol>
+          <li class="path-item now"><span class="path-date">Oct. 2026, en cours</span><h3>Fondateur, WILACTU</h3><p>Média automatisé par mon agent IA sur Facebook et LinkedIn.</p></li>
+          <li class="path-item now"><span class="path-date">Août 2026, en cours</span><h3>Community Manager</h3><p>Benin Blockchain Days 2027</p></li>
+          <li class="path-item now"><span class="path-date">Juil. 2026, en cours</span><h3>Community Manager</h3><p>Roots Technologies, Panda Ticket, Kom'Arts</p></li>
+          <li class="path-item"><span class="path-date">Du 22 avril au 13 juillet 2026</span><h3>MTN TITA Digital Skills</h3><p>Programme intensif Community Management et Création de Contenu (MTN Bénin Foundation, Digitale Vallée). Examen pratique : le Défi 125 contenus.</p></li>
+          <li class="path-item"><span class="path-date">2026</span><h3>Ambassadeur</h3><p>K2 Powerblock</p></li>
+          <li class="path-item"><span class="path-date">Oct. 2025</span><h3>Community Manager</h3><p>Hope With Bitcoin</p></li>
+          <li class="path-item"><span class="path-date">Sept. 2025</span><h3>Community Manager</h3><p>Deltrax Africa : de 0 à 10 interactions par publication, 113 membres WhatsApp.</p></li>
+          <li class="path-item"><span class="path-date">Avril 2025</span><h3>Ambassadeur</h3><p>Multibank.io</p></li>
+          <li class="path-item"><span class="path-date">Mars 2025</span><h3>Ambassadeur</h3><p>RobuSnipe</p></li>
+          <li class="path-item"><span class="path-date">Juil. 2024 à janv. 2025</span><h3>Téléconseiller</h3><p>Media Contact Bénin</p></li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <!-- 7. CERTIFICATIONS -->
-  <section id="certifications" class="section section-alt">
+  <!-- 12 OUTILS -->
+  <section id="outils" class="section section-tools">
     <div class="container">
-      <p class="eyebrow"><span class="eyebrow-index">08</span>Formation</p>
-      <h2>Certifications</h2>
-      <p class="section-intro">9 certifications, 5 organismes, de 2023 à 2026.</p>
-
-      <div class="cert-groups">
-        <div class="cert-group">
-          <h3 class="cert-group-title">IA &amp; numérique</h3>
-          <ul class="cert-list">
-            <li class="cert-item">
-              <span class="cert-badge">MS</span>
-              <span class="cert-info">
-                <span class="cert-name">IA Générative</span>
-                <span class="cert-org">MSA</span>
-              </span>
-              <span class="cert-year">2026</span>
-              <button type="button" class="cert-thumb gallery-item" data-full="assets/img/certifications/msa-ia-generative.png">
-                <img src="assets/img/certifications/msa-ia-generative.png" alt="Certificat MTN Skills Academy : IA Générative">
-              </button>
-            </li>
-            <li class="cert-item">
-              <span class="cert-badge">MS</span>
-              <span class="cert-info">
-                <span class="cert-name">Certificats fondamentaux d'Internet</span>
-                <span class="cert-org">MSA</span>
-              </span>
-              <span class="cert-year">2026</span>
-              <button type="button" class="cert-thumb gallery-item" data-full="assets/img/certifications/msa-fondamentaux-internet.png">
-                <img src="assets/img/certifications/msa-fondamentaux-internet.png" alt="Certificat MTN Skills Academy : Certificats fondamentaux d'Internet">
-              </button>
-            </li>
-            <li class="cert-item">
-              <span class="cert-badge">MS</span>
-              <span class="cert-info">
-                <span class="cert-name">Recherche sur Internet et au-delà</span>
-                <span class="cert-org">MSA</span>
-              </span>
-              <span class="cert-year">2026</span>
-              <button type="button" class="cert-thumb gallery-item" data-full="assets/img/certifications/msa-recherche-internet.png">
-                <img src="assets/img/certifications/msa-recherche-internet.png" alt="Certificat MTN Skills Academy : Recherche sur Internet et au-delà">
-              </button>
-            </li>
-          </ul>
-        </div>
-
-        <div class="cert-group">
-          <h3 class="cert-group-title">Web3 &amp; crypto</h3>
-          <ul class="cert-list">
-            <li class="cert-item">
-              <span class="cert-badge cert-badge-web3">BA</span>
-              <span class="cert-info">
-                <span class="cert-name">Agents et compétences débloqués par l'IA</span>
-                <span class="cert-org">Binance Academy</span>
-              </span>
-              <span class="cert-year">2026</span>
-              <button type="button" class="cert-thumb gallery-item" data-full="assets/img/certifications/binance-ia-agents.png">
-                <img src="assets/img/certifications/binance-ia-agents.png" alt="Certificat Binance Academy : Agents et compétences débloqués par l'IA">
-              </button>
-            </li>
-            <li class="cert-item">
-              <span class="cert-badge cert-badge-web3">BA</span>
-              <span class="cert-info">
-                <span class="cert-name">Introduction aux risques et cadres réglementaires</span>
-                <span class="cert-org">Binance Academy</span>
-              </span>
-              <span class="cert-year">2025</span>
-              <button type="button" class="cert-thumb gallery-item" data-full="assets/img/certifications/binance-regulatory-risks.png">
-                <img src="assets/img/certifications/binance-regulatory-risks.png" alt="Certificat Binance Academy : Introduction aux risques et cadres réglementaires">
-              </button>
-            </li>
-            <li class="cert-item">
-              <span class="cert-badge cert-badge-web3">BI</span>
-              <span class="cert-info">
-                <span class="cert-name">Académie Crypto Binance</span>
-                <span class="cert-org">Binance</span>
-              </span>
-              <span class="cert-year">2025</span>
-              <button type="button" class="cert-thumb gallery-item" data-full="assets/img/certifications/binance-academie-crypto.png">
-                <img src="assets/img/certifications/binance-academie-crypto.png" alt="Certificat Binance : Académie Crypto Binance">
-              </button>
-            </li>
-          </ul>
-        </div>
-
-        <div class="cert-group">
-          <h3 class="cert-group-title">Communication &amp; outils</h3>
-          <ul class="cert-list">
-            <li class="cert-item">
-              <span class="cert-badge">CO</span>
-              <span class="cert-info">
-                <span class="cert-name">Concevoir une présentation PowerPoint</span>
-                <span class="cert-org">Coursera</span>
-              </span>
-              <span class="cert-year">2026</span>
-              <button type="button" class="cert-thumb gallery-item" data-full="assets/img/certifications/coursera-powerpoint.png">
-                <img src="assets/img/certifications/coursera-powerpoint.png" alt="Certificat Coursera : Concevoir une présentation PowerPoint">
-              </button>
-            </li>
-            <li class="cert-item">
-              <span class="cert-badge">OC</span>
-              <span class="cert-info">
-                <span class="cert-name">Initiez-vous au marketing digital</span>
-                <span class="cert-org">OpenClassrooms</span>
-              </span>
-              <span class="cert-year">2023</span>
-              <button type="button" class="cert-thumb gallery-item" data-full="assets/img/certifications/openclassrooms-marketing-digital.png">
-                <img src="assets/img/certifications/openclassrooms-marketing-digital.png" alt="Certificat OpenClassrooms : Initiez-vous au marketing digital">
-              </button>
-            </li>
-            <li class="cert-item">
-              <span class="cert-badge">LN</span>
-              <span class="cert-info">
-                <span class="cert-name">WordPress</span>
-                <span class="cert-org">LEARNIO</span>
-              </span>
-              <span class="cert-year">2023</span>
-              <button type="button" class="cert-thumb gallery-item" data-full="assets/img/certifications/learnio-wordpress.png">
-                <img src="assets/img/certifications/learnio-wordpress.png" alt="Certificat LEARNIO : WordPress">
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <p class="eyebrow"><span>12</span>Boîte à outils</p>
+      <h2 class="big-title" data-split>Mes outils <em>au quotidien</em></h2>
+      <p class="section-lead">Les bulles bougent toutes seules. Attrape-en une et lance-la.</p>
+    </div>
+    <div class="tools-box" id="toolsBox">
+      <span class="tool t-y">Claude</span><span class="tool">Gemini</span><span class="tool t-b">Apps Script</span><span class="tool">Google Sheets</span><span class="tool t-y">Meta Business</span><span class="tool">API LinkedIn</span><span class="tool t-b">Canva</span><span class="tool">CapCut</span><span class="tool t-y">Google Flow</span><span class="tool">ChatGPT</span><span class="tool t-b">GitHub</span><span class="tool">WordPress</span><span class="tool t-y">Motion design</span><span class="tool">Voix off IA</span><span class="tool t-b">Vibe coding</span><span class="tool">Web3</span>
     </div>
   </section>
 
-  <!-- 8. TÉMOIGNAGES -->
-  <section id="temoignages" class="section">
+  <!-- 13 CERTIFICATIONS -->
+  <section id="certifications" class="section section-certs">
     <div class="container">
-      <p class="eyebrow"><span class="eyebrow-index">09</span>Retours</p>
-      <h2>Témoignages</h2>
-      <div class="testimonial-grid">
-        <blockquote class="testimonial testimonial-proof">
-          <img class="testimonial-img" src="assets/img/testimonials/kpogbeme.jpg" alt="Message WhatsApp de Nobert Kpogbème félicitant le comité pour la qualité du travail">
-          <cite>· Nobert KPOGBEME, Président SOS Samedi Matin</cite>
-        </blockquote>
+      <p class="eyebrow"><span>13</span>Formation</p>
+      <h2 class="big-title" data-split>9 certifications, <em>5 organismes</em></h2>
+    </div>
+    <div class="certs-marquee">
+      <div class="marquee-track" id="certsTrack">
+        <button type="button" class="cert" data-gallery-open="certs" data-index="0"><img src="assets/img/certifications/msa-ia-generative.png" alt="Certificat MTN Skills Academy : IA Générative" loading="lazy"><span><strong>IA Générative</strong>MTN Skills Academy, 2026</span></button>
+        <button type="button" class="cert" data-gallery-open="certs" data-index="1"><img src="assets/img/certifications/binance-ia-agents.png" alt="Certificat Binance Academy : agents et compétences débloqués par l'IA" loading="lazy"><span><strong>Agents et compétences IA</strong>Binance Academy, 2026</span></button>
+        <button type="button" class="cert" data-gallery-open="certs" data-index="2"><img src="assets/img/certifications/msa-fondamentaux-internet.png" alt="Certificat MTN Skills Academy : fondamentaux d'Internet" loading="lazy"><span><strong>Fondamentaux d'Internet</strong>MTN Skills Academy, 2026</span></button>
+        <button type="button" class="cert" data-gallery-open="certs" data-index="3"><img src="assets/img/certifications/msa-recherche-internet.png" alt="Certificat MTN Skills Academy : recherche sur Internet et au-delà" loading="lazy"><span><strong>Recherche sur Internet</strong>MTN Skills Academy, 2026</span></button>
+        <button type="button" class="cert" data-gallery-open="certs" data-index="4"><img src="assets/img/certifications/coursera-powerpoint.png" alt="Certificat Coursera : présentation PowerPoint" loading="lazy"><span><strong>Présentation PowerPoint</strong>Coursera, 2026</span></button>
+        <button type="button" class="cert" data-gallery-open="certs" data-index="5"><img src="assets/img/certifications/binance-regulatory-risks.png" alt="Certificat Binance Academy : risques et cadres réglementaires" loading="lazy"><span><strong>Risques et réglementation</strong>Binance Academy, 2025</span></button>
+        <button type="button" class="cert" data-gallery-open="certs" data-index="6"><img src="assets/img/certifications/binance-academie-crypto.png" alt="Certificat Binance : Académie Crypto" loading="lazy"><span><strong>Académie Crypto</strong>Binance, 2025</span></button>
+        <button type="button" class="cert" data-gallery-open="certs" data-index="7"><img src="assets/img/certifications/openclassrooms-marketing-digital.png" alt="Certificat OpenClassrooms : marketing digital" loading="lazy"><span><strong>Marketing digital</strong>OpenClassrooms, 2023</span></button>
+        <button type="button" class="cert" data-gallery-open="certs" data-index="8"><img src="assets/img/certifications/learnio-wordpress.png" alt="Certificat LEARNIO : WordPress" loading="lazy"><span><strong>WordPress</strong>LEARNIO, 2023</span></button>
       </div>
+    </div>
+    <div class="container">
+      <figure class="testimonial">
+        <button type="button" class="testimonial-img" data-gallery-open="temoignage"><img src="assets/img/testimonials/kpogbeme.jpg" alt="Message WhatsApp de Nobert Kpogbème félicitant le comité pour la qualité du travail" loading="lazy"></button>
+        <figcaption><span class="quote-mark" aria-hidden="true">“</span><p>Après l'organisation d'un événement communautaire, la qualité du travail a été saluée devant tout le comité.</p><cite>Nobert KPOGBEME, Président de SOS Samedi Matin</cite></figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- 9. POURQUOI COLLABORER AVEC MOI -->
-  <section id="pourquoi-moi" class="section section-alt">
-    <div class="container">
-      <p class="eyebrow"><span class="eyebrow-index">10</span>Pourquoi moi</p>
-      <h2>Pourquoi collaborer avec moi</h2>
-      <div class="value-grid">
-        <article class="value-item">
-          <h4>Des résultats sans budget publicitaire</h4>
-          <p>Deltrax Africa, Pi Network, Football Pulse&nbsp;: chaque communauté a grandi de façon organique, sans un seul euro de publicité.</p>
-        </article>
-        <article class="value-item">
-          <h4>Un double profil rare</h4>
-          <p>Community management ET Web3/crypto&nbsp;: deux univers qui se recoupent de plus en plus, et que je maîtrise tous les deux.</p>
-        </article>
-        <article class="value-item">
-          <h4>Je couvre toute la chaîne</h4>
-          <p>Stratégie, production, animation, suivi&nbsp;: sans sous-traiter aucune étape, du premier brief au dernier indicateur.</p>
-        </article>
-        <article class="value-item">
-          <h4>Je m'appuie sur les bons outils IA</h4>
-          <p>Claude, automatisation de veille, création de contenu assistée&nbsp;: j'utilise l'IA pour aller plus vite, sans perdre la touche humaine.</p>
-        </article>
+  <!-- 14 CONTACT -->
+  <section id="contact" class="section-contact">
+    <div class="contact-marquee" aria-hidden="true"><div class="marquee-track"><span>Travaillons ensemble</span><svg><use href="#i-asterisk"/></svg><span>Travaillons ensemble</span><svg><use href="#i-asterisk"/></svg><span>Travaillons ensemble</span><svg><use href="#i-asterisk"/></svg></div></div>
+    <div class="container contact-inner">
+      <div class="contact-left">
+        <p class="eyebrow eyebrow-dark"><span>14</span>Contact</p>
+        <h2 class="contact-title">Un projet, une marque à faire vivre, un poste ? <em>Parlons-en.</em></h2>
+        <div class="contact-visual" aria-hidden="true">
+          <span class="shape shape-1"></span><span class="shape shape-2"></span><span class="shape shape-3"></span>
+          <img src="assets/img/cut/portrait-noir.webp" alt="" loading="lazy">
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- 10. CONTACT -->
-  <section id="contact" class="section">
-    <div class="container container-narrow">
-      <p class="eyebrow"><span class="eyebrow-index">11</span>Contact</p>
-      <h2>Contact</h2>
-      <p class="section-intro">Tu veux collaborer, me recruter ou simplement échanger&nbsp;? Je suis disponible.</p>
       <ul class="contact-list">
-        <li>
-          <span class="contact-icon"><svg class="icon" width="18" height="18"><use href="#icon-phone"/></svg></span>
-          <a href="tel:+229154142308">+229 01 54 14 23 08</a>
-        </li>
-        <li>
-          <span class="contact-icon"><svg class="icon" width="18" height="18"><use href="#icon-mail"/></svg></span>
-          <a href="mailto:gnonlonfounwilfried9@gmail.com">gnonlonfounwilfried9@gmail.com</a>
-        </li>
-        <li>
-          <span class="contact-icon"><svg class="icon" width="18" height="18"><use href="#icon-linkedin"/></svg></span>
-          <a href="https://linkedin.com/in/wilfried-gnonlonfoun" target="_blank" rel="noopener">linkedin.com/in/wilfried-gnonlonfoun</a>
-        </li>
-        <li>
-          <span class="contact-icon"><svg class="icon" width="18" height="18"><use href="#icon-x"/></svg></span>
-          <a href="https://x.com/WilfriedGnonlo4" target="_blank" rel="noopener">@WilfriedGnonlo4</a>
-        </li>
+        <li><a href="mailto:gnonlonfounwilfried9@gmail.com" data-magnetic><svg width="20" height="20"><use href="#i-mail"/></svg><span>gnonlonfounwilfried9@gmail.com</span><svg class="go" width="18" height="18"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="tel:+229154142308" data-magnetic><svg width="20" height="20"><use href="#i-phone"/></svg><span>+229 01 54 14 23 08</span><svg class="go" width="18" height="18"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="https://linkedin.com/in/wilfried-gnonlonfoun" target="_blank" rel="noopener" data-magnetic><svg width="20" height="20"><use href="#i-linkedin"/></svg><span>linkedin.com/in/wilfried-gnonlonfoun</span><svg class="go" width="18" height="18"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="https://x.com/WilfriedGnonlo4" target="_blank" rel="noopener" data-magnetic><svg width="20" height="20"><use href="#i-x"/></svg><span>@WilfriedGnonlo4</span><svg class="go" width="18" height="18"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="https://gnonlonfounwilfried9-dotcom.github.io/projets/" target="_blank" rel="noopener" data-magnetic><svg width="20" height="20"><use href="#i-grid"/></svg><span>Mes projets en détail</span><svg class="go" width="18" height="18"><use href="#i-arrow"/></svg></a></li>
       </ul>
     </div>
+    <footer class="site-footer container">
+      <p>&copy; 2026 GNONLONFOUN Sènakpon Wilfried</p>
+      <p>Cotonou, Bénin</p>
+      <a href="#accueil" class="to-top">Haut de page <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+    </footer>
   </section>
 
 </main>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>&copy; 2026 GNONLONFOUN Sènakpon Wilfried.</p>
-  </div>
-</footer>
-
-<!-- Visionneuse plein écran pour les galeries -->
-<div class="lightbox" id="lightbox">
-  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Fermer">
-    <svg class="icon" width="22" height="22"><use href="#icon-close"/></svg>
-  </button>
-  <img src="" alt="" id="lightboxImg">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse">
+  <button type="button" class="lb-btn lb-close" id="lbClose" aria-label="Fermer"><svg width="22" height="22"><use href="#i-close"/></svg></button>
+  <button type="button" class="lb-btn lb-prev" id="lbPrev" aria-label="Image précédente"><svg width="24" height="24"><use href="#i-left"/></svg></button>
+  <figure><img src="" alt="" id="lbImg"><figcaption id="lbCount"></figcaption></figure>
+  <button type="button" class="lb-btn lb-next" id="lbNext" aria-label="Image suivante"><svg width="24" height="24"><use href="#i-right"/></svg></button>
+</div>
+<div class="lightbox videobox" id="videobox" role="dialog" aria-modal="true" aria-label="Lecteur vidéo">
+  <button type="button" class="lb-btn lb-close" id="vbClose" aria-label="Fermer"><svg width="22" height="22"><use href="#i-close"/></svg></button>
+  <video id="vbVideo" controls playsinline></video>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.20.0/matter.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
