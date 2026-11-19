@@ -258,49 +258,126 @@
   }, { threshold: 0.4 });
   $$('.bars').forEach((b) => barObs.observe(b));
 
-  /* ---------- Ikigaï : boucle continue (séparation, croisement, fusion) ---------- */
+  /* ---------- Ikigaï : boucle continue, particules, liens, attraction du curseur ---------- */
   const ikStage = $('#ikigaiStage');
   if (ikStage) {
+    const NS = 'http://www.w3.org/2000/svg';
     const circles = $$('#ikCircles circle'), labels = $$('#ikLabels text'), core = $('#ikCore'), coreText = $('#ikCoreText');
     const items = $$('#ikigaiList li');
-    let visible = true;
+    const linesG = $('#ikLines'), partG = $('#ikParticles');
+    const pairs = [[0, 1], [1, 2], [2, 3], [3, 0], [0, 2], [1, 3]];
+    const lines = pairs.map(() => { const l = document.createElementNS(NS, 'line'); linesG.appendChild(l); return l; });
+    const COLORS = ['#5cc2ff', '#ffd84d', '#9a8cff', '#4fe3bf'];
+    const parts = Array.from({ length: 34 }, (_, i) => {
+      const c = document.createElementNS(NS, 'circle'); c.setAttribute('r', (1.6 + Math.random() * 2.4).toFixed(1)); c.setAttribute('fill', COLORS[i % 4]); partG.appendChild(c);
+      return { el: c, from: i % 4, to: (i + 1 + Math.floor(Math.random() * 3)) % 4, t: Math.random(), sp: 0.12 + Math.random() * 0.28, off: (Math.random() - .5) * 26 };
+    });
+    let visible = true, mx = 0, my = 0, mIn = false;
     new IntersectionObserver((en) => { visible = en[0].isIntersecting; }).observe(ikStage);
-    const CX = 300, CY = 300, CYCLE = 14000;
+    ikStage.addEventListener('pointermove', (e) => {
+      const r = ikStage.getBoundingClientRect();
+      mx = (e.clientX - r.left) / r.width * 600; my = (e.clientY - r.top) / r.height * 600; mIn = true;
+    });
+    ikStage.addEventListener('pointerleave', () => { mIn = false; });
+    const CX = 300, CY = 300, CYCLE = 11000;
     const ease = (x) => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
     const spreadAt = (p) => {
-      // 0 à .25 : écartés et en orbite ; .25 à .45 : rapprochement en rosace ; .45 à .6 : fusion ; .6 à .8 : rosace ; .8 à 1 : écartement
-      if (p < .25) return 1;
-      if (p < .45) return 1 - ease((p - .25) / .2) * .62;
-      if (p < .6) return .38 - ease((p - .45) / .15) * .38;
-      if (p < .8) return ease((p - .6) / .2) * .38;
-      return .38 + ease((p - .8) / .2) * .62;
+      if (p < .18) return 1;
+      if (p < .38) return 1 - ease((p - .18) / .2) * .64;
+      if (p < .5) return .36 - ease((p - .38) / .12) * .36;
+      if (p < .62) return 0;
+      if (p < .78) return ease((p - .62) / .16) * .5;
+      if (p < .9) return .5 + Math.sin((p - .78) / .12 * Math.PI) * .12;
+      return .5 + ease((p - .9) / .1) * .5;
     };
+    let last = 0;
+    const pos = [[0, 0], [0, 0], [0, 0], [0, 0]];
     const frame = (now) => {
       if (visible) {
-        const p = reduce ? .5 : (now % CYCLE) / CYCLE;
-        const s = reduce ? .38 : spreadAt(p);
-        const rot = reduce ? 0 : now / 9000;
-        const R = 12 + s * 165, r = 118 + (1 - s) * 18;
+        const dt = Math.min(0.05, (now - last) / 1000 || 0.016); last = now;
+        const p = reduce ? .4 : (now % CYCLE) / CYCLE;
+        const s = reduce ? .36 : spreadAt(p);
+        const rot = reduce ? 0 : now / 5200;
+        const R = 10 + s * 170, r = 112 + (1 - s) * 26 + (reduce ? 0 : Math.sin(now / 700) * 5);
         circles.forEach((c, k) => {
-          const a = rot + k * Math.PI / 2 - Math.PI / 4;
-          const wob = reduce ? 0 : Math.sin(now / 900 + k) * 8 * s;
-          c.setAttribute('cx', CX + Math.cos(a) * (R + wob));
-          c.setAttribute('cy', CY + Math.sin(a) * (R + wob));
-          c.setAttribute('r', r);
-          const la = a, LR = R + r * .62;
-          labels[k].setAttribute('x', CX + Math.cos(la) * LR);
-          labels[k].setAttribute('y', CY + Math.sin(la) * LR + 7);
+          const a = rot + k * Math.PI / 2 - Math.PI / 4 + (reduce ? 0 : Math.sin(now / 1500 + k * 2) * .25);
+          const wob = reduce ? 0 : Math.sin(now / 520 + k * 1.7) * 14 * (.35 + s);
+          let x = CX + Math.cos(a) * (R + wob), y = CY + Math.sin(a) * (R + wob);
+          if (mIn && !reduce) { x += (mx - x) * .18; y += (my - y) * .18; }
+          pos[k] = [x, y];
+          c.setAttribute('cx', x.toFixed(1)); c.setAttribute('cy', y.toFixed(1)); c.setAttribute('r', r.toFixed(1));
+          const LR = R + r * .62;
+          labels[k].setAttribute('x', (CX + Math.cos(a) * LR + (x - CX - Math.cos(a) * R)).toFixed(1));
+          labels[k].setAttribute('y', (CY + Math.sin(a) * LR + (y - CY - Math.sin(a) * R) + 7).toFixed(1));
           labels[k].style.opacity = s < .2 ? s * 5 : 1;
         });
+        lines.forEach((l, i) => {
+          const [a, b] = pairs[i];
+          l.setAttribute('x1', pos[a][0].toFixed(1)); l.setAttribute('y1', pos[a][1].toFixed(1)); l.setAttribute('x2', pos[b][0].toFixed(1)); l.setAttribute('y2', pos[b][1].toFixed(1));
+          l.style.opacity = Math.min(1, s * 1.6) * .8;
+        });
+        parts.forEach((q) => {
+          q.t += dt * q.sp * (1 + (1 - s) * 2.2);
+          if (q.t >= 1) { q.t = 0; q.from = q.to; q.to = (q.from + 1 + Math.floor(Math.random() * 3)) % 4; }
+          const e = ease(q.t), A = pos[q.from], B = pos[q.to];
+          const x = A[0] + (B[0] - A[0]) * e + Math.sin(q.t * 6.283 + q.off) * q.off * .6;
+          const y = A[1] + (B[1] - A[1]) * e + Math.cos(q.t * 6.283 + q.off) * q.off * .6;
+          q.el.setAttribute('cx', x.toFixed(1)); q.el.setAttribute('cy', y.toFixed(1));
+          q.el.style.opacity = (.35 + Math.sin(q.t * Math.PI) * .65).toFixed(2);
+        });
         const merged = 1 - Math.min(1, s / .3);
-        core.setAttribute('r', 40 + merged * 30 + (reduce ? 0 : Math.sin(now / 400) * 3 * merged));
-        coreText.style.fontSize = (18 + merged * 10) + 'px';
-        const active = Math.floor(p * 8) % 4;
+        core.setAttribute('r', (40 + merged * 34 + (reduce ? 0 : Math.sin(now / 300) * 4 * (.3 + merged))).toFixed(1));
+        coreText.style.fontSize = (18 + merged * 12) + 'px';
+        const active = Math.floor(p * 12) % 4;
         items.forEach((li, k) => li.classList.toggle('is-on', merged > .5 ? true : k === active));
       }
       requestAnimationFrame(frame);
     };
     requestAnimationFrame(frame);
+  }
+
+  /* ---------- Contact : mots qui changent, lueur qui suit le curseur ---------- */
+  const swapWord = $('#swapWord');
+  if (swapWord && !reduce) {
+    const words = ['un projet', 'une marque', 'un poste', 'une idée', 'une campagne'];
+    let wi = 0;
+    setInterval(() => {
+      wi = (wi + 1) % words.length;
+      if (hasGSAP) {
+        gsap.to(swapWord, { yPercent: -60, opacity: 0, duration: .25, ease: 'power2.in', onComplete: () => { swapWord.textContent = words[wi]; gsap.fromTo(swapWord, { yPercent: 60, opacity: 0 }, { yPercent: 0, opacity: 1, duration: .45, ease: 'power3.out' }); } });
+      } else swapWord.textContent = words[wi];
+    }, 2200);
+  }
+  const cGlow = $('#contactGlow'), cSec = $('#contact');
+  if (cGlow && cSec && fine && !reduce) {
+    let gx = 400, gy = 300, tx = 400, ty = 300;
+    cSec.addEventListener('pointermove', (e) => { const r = cSec.getBoundingClientRect(); tx = e.clientX - r.left; ty = e.clientY - r.top; });
+    (function loop() { gx += (tx - gx) * .08; gy += (ty - gy) * .08; cGlow.style.transform = `translate(${gx}px, ${gy}px)`; requestAnimationFrame(loop); })();
+  } else if (cGlow && !reduce) {
+    gsap && gsap.to(cGlow, { x: '70vw', y: 300, duration: 7, yoyo: true, repeat: -1, ease: 'sine.inOut' });
+  }
+
+  /* ---------- Mouvement global : bandeaux accélérés par le défilement, cartes inclinables ---------- */
+  if (!reduce) {
+    const tracks = $$('.marquee-track');
+    let boost = 0, lastSY = window.scrollY;
+    window.addEventListener('scroll', () => { const d = Math.abs(window.scrollY - lastSY); lastSY = window.scrollY; boost = Math.min(5, boost + d / 120); }, { passive: true });
+    (function loop() {
+      boost *= 0.94;
+      const rate = 1 + boost;
+      tracks.forEach((t) => { (t.getAnimations ? t.getAnimations() : []).forEach((a) => { a.playbackRate = rate; }); });
+      requestAnimationFrame(loop);
+    })();
+    if (fine) {
+      $$('.doc, .cert').forEach((el) => {
+        el.addEventListener('pointermove', (e) => {
+          const r = el.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+          el.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-4px)`;
+        });
+        el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+      });
+    }
   }
 
   /* ---------- Agent : circuit qui tourne seul + journal en direct ---------- */
@@ -453,7 +530,6 @@
     wilactu: seq('wilactu', 24), panda: seq('panda', 24), roots: seq('roots', 12),
     'komarts-proof': [P + 'kom-arts/cover.jpg', P + 'kom-arts/chiffres-cles.jpg', P + 'kom-arts/objectifs.jpg', P + 'kom-arts/calendrier-editorial.jpg'],
     'bbd-proof': [P + 'bbd2027/cover.jpg', P + 'bbd2027/objectifs.jpg', P + 'bbd2027/calendrier.jpg'],
-    'defi-proof': [P + 'defi-125/cover.jpg', P + 'defi-125/tableau-de-bord.jpg', P + 'defi-125/bilan-critique.jpg'],
     'uac-proof': [P + 'uac/cover.jpg', P + 'uac/etat-des-lieux-facebook.jpg', P + 'uac/objectifs.jpg', 'assets/img/uac/bus-universitaires.jpg', 'assets/img/uac/sondage-campus.jpg'],
     'panda-proof': [P + 'panda-ticket/cover.jpg', P + 'panda-ticket/objectifs.jpg', P + 'panda-ticket/calendrier.jpg'],
     'pulse-proof': [P + 'football-pulse/cover.jpg', P + 'football-pulse/chiffres-cles.jpg', P + 'football-pulse/objectifs.jpg', P + 'football-pulse/calendrier-aout.jpg'],
@@ -462,6 +538,7 @@
     certs: ['msa-ia-generative.png', 'binance-ia-agents.png', 'msa-fondamentaux-internet.png', 'msa-recherche-internet.png', 'coursera-powerpoint.png', 'binance-regulatory-risks.png', 'binance-academie-crypto.png', 'openclassrooms-marketing-digital.png', 'learnio-wordpress.png'].map((n) => 'assets/img/certifications/' + n),
     temoignage: ['assets/img/testimonials/kpogbeme.jpg'],
   };
+  ['panda-strategie-6-mois','panda-plan-v5','roots-plan-imprimantes','roots-plan-3','komarts-plan-devweb','wura-strategie','wura-plan-6-semaines','filinfos-roots','possa-strategie'].forEach((k) => { galleries['d-' + k] = [1, 2, 3, 4].map((i) => `assets/img/docs/${k}/${i}.webp`); });
   const lb = $('#lightbox'), lbImg = $('#lbImg'), lbCount = $('#lbCount');
   let cur = [], idx = 0;
   const show = () => { lbImg.src = cur[idx]; lbImg.alt = 'Visuel ' + (idx + 1) + ' sur ' + cur.length; lbCount.textContent = cur.length > 1 ? (idx + 1) + ' / ' + cur.length : ''; };
