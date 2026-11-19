@@ -6,7 +6,7 @@
   let list = [], k = 0;
   const show = () => { img.src = list[k]; cap.textContent = (k + 1) + ' / ' + list.length; };
   items.forEach((g) => g.addEventListener('click', () => {
-    list = Array.from(g.parentElement.querySelectorAll('.g')).map((x) => x.dataset.src);
+    list = Array.from((g.closest('.grid') || g.parentElement).querySelectorAll('.g')).map((x) => x.dataset.src);
     k = list.indexOf(g.dataset.src); show(); lb.classList.add('open');
   }));
   const close = () => { lb.classList.remove('open'); img.src = ''; };
