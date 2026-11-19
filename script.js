@@ -22,7 +22,7 @@
   const scrollToEl = (el) => scrollToY(el.getBoundingClientRect().top + window.scrollY - 70);
 
   /* ---------- Bandeaux : duplication pour une boucle sans couture ---------- */
-  $$('.marquee, .stack-marquee, .chips-marquee, .certs-marquee, .contact-marquee, .creator-marquee').forEach((m) => {
+  $$('.marquee, .stack-marquee, .chips-marquee, .certs-marquee, .contact-marquee, .creator-marquee, .docs-marquee, .alerts-marquee, .path-side').forEach((m) => {
     const t = $('.marquee-track', m);
     if (!t) return;
     const c = t.cloneNode(true);
@@ -380,9 +380,8 @@
     }
   }
 
-  /* ---------- Agent : circuit qui tourne seul + journal en direct ---------- */
-  const pipe = $('#pipeline');
-  if (pipe) {
+  /* ---------- Agent : deux circuits qui tournent seuls + journal en direct ---------- */
+  $$('[data-pipeline]').forEach((pipe, pi) => {
     const steps = $$('.pipe-step', pipe);
     const packet = document.createElement('span');
     packet.className = 'pipe-packet';
@@ -397,22 +396,24 @@
       packet.style.top = top + 'px';
     };
     go();
-    if (!reduce) setInterval(go, 1700);
-  }
+    if (!reduce) setTimeout(() => setInterval(go, pi ? 1300 : 1800), pi * 400);
+  });
   const term = $('#terminal');
   if (term) {
     const lines = [
-      ['08:00', 'Lecture du calendrier : <b>4 posts</b> prévus aujourd’hui'],
-      ['08:01', 'Affiche générée : <b>WL quiz CAN</b>'],
+      ['08:00', 'Calendrier lu : <b>8 posts</b> prévus aujourd’hui'],
+      ['08:01', 'Affiche générée : <b>rubrique quiz</b>'],
       ['08:30', 'Mail de validation envoyé, publication à 09:00'],
       ['08:42', '<i>Validé</i> en un clic'],
       ['09:00', '<i>Publié</i> sur Facebook WILACTU'],
-      ['09:05', 'Notification de confirmation envoyée'],
-      ['10:15', 'Radar : info chaude détectée, <b>sport</b>'],
-      ['10:16', 'Vérification de la source, breaking news préparée'],
-      ['12:00', 'Mail de validation, publication à 12:30'],
+      ['10:12', 'Radar : info détectée, domaine <b>sport</b>'],
+      ['10:13', 'Source vérifiée, post et affiche créés tout seuls'],
+      ['10:14', 'Mail d’alerte envoyé, publication dans <b>10 min</b>'],
+      ['10:24', '<i>Publié</i> : alerte imprévue, hors calendrier'],
       ['12:30', '<i>Publié</i> sur Facebook WILACTU'],
-      ['13:00', '<i>Publié</i> sur LinkedIn, profil Wilfried'],
+      ['13:40', 'Radar : info détectée, domaine <b>économie</b>'],
+      ['13:50', '<i>Publié</i> : alerte imprévue'],
+      ['16:00', '<i>Publié</i> sur LinkedIn'],
       ['18:30', '<i>Publié</i> sur Facebook Roots Technologies'],
       ['19:00', 'Journal mis à jour, <b>0 erreur</b>'],
     ];
@@ -426,7 +427,107 @@
       li++;
     };
     for (let k = 0; k < 5; k++) push();
-    if (!reduce) setInterval(push, 1500);
+    if (!reduce) setInterval(push, 1400);
+  }
+
+  /* ---------- Radar d'actualité et flux d'alertes (illustration animée) ---------- */
+  const radar = $('#radar');
+  if (radar) {
+    const NS = 'http://www.w3.org/2000/svg';
+    const blips = $('#radarBlips'), doms = $$('#radarDomains li');
+    const names = ['Sport', 'Politique', 'Économie', 'Santé', 'Religion', 'Finance', 'Crypto', 'Guerres', 'Afrique'];
+    const cols = ['#f6c21b', '#ff7a59', '#2f9fe0', '#18c9a0', '#b58cff', '#4fe3bf', '#ffb547', '#ff5d57', '#7ed957'];
+    const feed = $('#feedList');
+    const stages = ['info détectée', 'source en vérification', 'source confirmée', 'affiche générée', 'mail d’alerte envoyé', 'publiée'];
+    const ping = (k) => {
+      const a = (k / 9) * Math.PI * 2 + Math.random() * .3, r = 45 + Math.random() * 130;
+      const x = 200 + Math.cos(a) * r, y = 200 + Math.sin(a) * r;
+      const g = document.createElementNS(NS, 'g');
+      g.innerHTML = `<circle class="blip-ring" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="6"/><circle class="blip" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5"/>`;
+      blips.appendChild(g);
+      setTimeout(() => g.remove(), 2600);
+      doms.forEach((d, i) => d.classList.toggle('hot', i === k));
+      setTimeout(() => doms[k] && doms[k].classList.remove('hot'), 1400);
+    };
+    const mm = (n) => String(n).padStart(2, '0');
+    const addFeed = (k, stage, time) => {
+      const li2 = document.createElement('li');
+      li2.className = 'feed-item' + (stage === 5 ? ' done' : '');
+      li2.style.setProperty('--c', cols[k]);
+      li2.innerHTML = `<span class="tag-d">${names[k]}</span><span class="st">${stages[stage]}</span><span class="tm">${time}</span>`;
+      feed.appendChild(li2);
+      while (feed.children.length > 8) feed.removeChild(feed.firstChild);
+    };
+    let clock = 9 * 60 + 40, cur = 0, stage = 0, kk = 0;
+    const tick = () => {
+      if (stage === 0) { kk = Math.floor(Math.random() * 9); ping(kk); }
+      addFeed(kk, stage, `${mm(Math.floor(clock / 60) % 24)}:${mm(clock % 60)}`);
+      stage++; clock += 2 + Math.floor(Math.random() * 3);
+      if (stage > 5) { stage = 0; clock += 7 + Math.floor(Math.random() * 20); }
+      cur++;
+    };
+    for (let k = 0; k < 4; k++) tick();
+    if (!reduce) setInterval(tick, 1100);
+    void cur;
+  }
+
+  /* ---------- Rendez-vous Web3 : mise en avant tournante ---------- */
+  const evs = $$('#eventsRail .event');
+  if (evs.length && !reduce) {
+    let ei = 0;
+    const lite = () => { evs.forEach((e, k) => e.classList.toggle('hot', k === ei)); ei = (ei + 1) % evs.length; };
+    lite(); setInterval(lite, 1800);
+  }
+
+  /* ---------- Parcours : texte qui se décode + réseau d'innovation ---------- */
+  const GL = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#<>/\\{}';
+  const scramble = (el) => {
+    if (reduce || el.dataset.scr) return;
+    el.dataset.scr = '1';
+    const target = el.textContent; let f = 0;
+    const id = setInterval(() => {
+      f++;
+      el.textContent = target.split('').map((c, i) => (c === ' ' ? ' ' : (i < f / 1.6 ? c : GL[Math.floor(Math.random() * GL.length)]))).join('');
+      if (f > target.length * 1.6 + 2) { clearInterval(id); el.textContent = target; }
+    }, 32);
+  };
+  const scrObs = new IntersectionObserver((en) => en.forEach((e) => { if (e.isIntersecting) { scramble(e.target); scrObs.unobserve(e.target); } }), { threshold: 0.8 });
+  $$('[data-scramble]').forEach((h) => scrObs.observe(h));
+  $$('.path-card').forEach((c) => {
+    if (!fine || reduce) return;
+    c.addEventListener('pointermove', (e) => { const r = c.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; c.style.transform = `perspective(900px) rotateY(${x * 7}deg) rotateX(${-y * 7}deg)`; });
+    c.addEventListener('pointerleave', () => { c.style.transform = ''; });
+  });
+  const pn = $('#pathNet');
+  if (pn && !reduce) {
+    const ctx = pn.getContext('2d'); let W, H, nodes = [], vis = true;
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const size = () => { W = pn.clientWidth; H = pn.clientHeight; pn.width = W * dpr; pn.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); const n = Math.min(90, Math.round(W * H / 14000)); nodes = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .5, vy: (Math.random() - .5) * .5, r: Math.random() * 2 + .8, p: Math.random() * 6 })); };
+    size(); window.addEventListener('resize', size);
+    new IntersectionObserver((en) => { vis = en[0].isIntersecting; }).observe(pn);
+    (function draw(t) {
+      if (vis) {
+        ctx.clearRect(0, 0, W, H);
+        nodes.forEach((n) => { n.x += n.vx; n.y += n.vy; if (n.x < 0 || n.x > W) n.vx *= -1; if (n.y < 0 || n.y > H) n.vy *= -1; const a = .5 + Math.sin(t / 700 + n.p) * .4; ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, 6.283); ctx.fillStyle = `rgba(246,194,27,${a})`; ctx.fill(); });
+        for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) { const a = nodes[i], b = nodes[j], d = Math.hypot(a.x - b.x, a.y - b.y); if (d < 130) { ctx.strokeStyle = `rgba(110,170,255,${(1 - d / 130) * .3})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); } }
+      }
+      requestAnimationFrame(draw);
+    })(0);
+  }
+
+  /* ---------- Traînée lumineuse derrière le curseur ---------- */
+  if (fine && !reduce) {
+    const tc = document.createElement('canvas'); tc.className = 'trail'; tc.setAttribute('aria-hidden', 'true'); document.body.appendChild(tc);
+    const tx = tc.getContext('2d'); const dpr2 = Math.min(2, window.devicePixelRatio || 1); let pts2 = [];
+    const rs = () => { tc.width = innerWidth * dpr2; tc.height = innerHeight * dpr2; tx.setTransform(dpr2, 0, 0, dpr2, 0, 0); };
+    rs(); window.addEventListener('resize', rs);
+    window.addEventListener('pointermove', (e) => { pts2.push({ x: e.clientX, y: e.clientY, l: 1 }); if (pts2.length > 40) pts2.shift(); }, { passive: true });
+    (function loop() {
+      tx.clearRect(0, 0, innerWidth, innerHeight);
+      pts2.forEach((p, i) => { p.l -= 0.035; if (p.l > 0) { tx.beginPath(); tx.arc(p.x, p.y, 7 * p.l, 0, 6.283); tx.fillStyle = `rgba(246,194,27,${p.l * .35})`; tx.fill(); } });
+      pts2 = pts2.filter((p) => p.l > 0);
+      requestAnimationFrame(loop);
+    })();
   }
 
   /* ---------- Murs d'affiches en défilement continu ---------- */
@@ -462,7 +563,7 @@
 
   if (hasGSAP && !reduce) {
     /* ---------- Apparitions ---------- */
-    const rise = '.stat, .profil-card, .ikigai-list li, .agent-stats > div, .connected, .doc, .service, .testimonial, .bars, .docs-title, .section-lead, .terminal, .creator-steps li, .all-projects, .sub';
+    const rise = '.stat, .profil-card, .ikigai-list li, .agent-stats > div, .connected, .doc, .service, .bars, .path-stats > div, .radar-block .section-lead, .feed, .lane, .events-rail li, .docs-title, .section-lead, .terminal, .creator-steps li, .all-projects, .sub';
     gsap.set(rise, { opacity: 0, y: 50 });
     ScrollTrigger.batch(rise, { start: 'top 88%', onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: 1, stagger: 0.08, ease: 'power3.out', overwrite: true, clearProps: 'transform' }) });
     const wipe = '.reel, .wide, .flow';
@@ -534,11 +635,11 @@
     'panda-proof': [P + 'panda-ticket/cover.jpg', P + 'panda-ticket/objectifs.jpg', P + 'panda-ticket/calendrier.jpg'],
     'pulse-proof': [P + 'football-pulse/cover.jpg', P + 'football-pulse/chiffres-cles.jpg', P + 'football-pulse/objectifs.jpg', P + 'football-pulse/calendrier-aout.jpg'],
     'guide-proof': [P + 'guide-12-points/cover.jpg', P + 'guide-12-points/point-05-cadrage.jpg', P + 'guide-12-points/conclusion.jpg'],
-    web3: ['bitget-beyond-2025', 'binance-angels', 'hope-with-bitcoin-meetup'].map((n) => `assets/img/web3/${n}.jpg`),
+    web3: ['bitget-beyond-2025', 'binance-angels', 'binance-meetup'].map((n) => `assets/img/web3/${n}.jpg`),
     certs: ['msa-ia-generative.png', 'binance-ia-agents.png', 'msa-fondamentaux-internet.png', 'msa-recherche-internet.png', 'coursera-powerpoint.png', 'binance-regulatory-risks.png', 'binance-academie-crypto.png', 'openclassrooms-marketing-digital.png', 'learnio-wordpress.png'].map((n) => 'assets/img/certifications/' + n),
-    temoignage: ['assets/img/testimonials/kpogbeme.jpg'],
+    alertes: seq('alertes', 14).map((x) => x.replace('/alertes/alertes-', '/alertes/alerte-')),
   };
-  ['panda-strategie-6-mois','panda-plan-v5','roots-plan-imprimantes','roots-plan-3','komarts-plan-devweb','wura-strategie','wura-plan-6-semaines','filinfos-roots','possa-strategie'].forEach((k) => { galleries['d-' + k] = [1, 2, 3, 4].map((i) => `assets/img/docs/${k}/${i}.webp`); });
+  ['panda-strategie-6-mois','panda-plan-v5','roots-plan-imprimantes','roots-plan-3','komarts-plan-devweb','wura-strategie','wura-plan-6-semaines'].forEach((k) => { galleries['d-' + k] = [1, 2, 3, 4].map((i) => `assets/img/docs/${k}/${i}.webp`); });
   const lb = $('#lightbox'), lbImg = $('#lbImg'), lbCount = $('#lbCount');
   let cur = [], idx = 0;
   const show = () => { lbImg.src = cur[idx]; lbImg.alt = 'Visuel ' + (idx + 1) + ' sur ' + cur.length; lbCount.textContent = cur.length > 1 ? (idx + 1) + ' / ' + cur.length : ''; };

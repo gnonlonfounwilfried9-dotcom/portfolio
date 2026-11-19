@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 <script>try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('reduce-motion')}catch(e){}</script>
 <noscript><style>.loader{display:none}.reveal{opacity:1!important}</style></noscript>
 </head>
@@ -101,7 +101,7 @@
         <span><strong>Agent IA actif</strong><small id="liveTicker">publication programmée</small></span>
       </div>
       <div class="hero-badge hero-badge-count" data-float>
-        <strong><span class="count" data-to="120">0</span>+</strong><small>posts publiés seuls</small>
+        <strong>8<small style="display:inline;font-size:.5em">/jour</small></strong><small>publiés par l'agent</small>
       </div>
     </div>
 
@@ -149,9 +149,9 @@
     </div>
     <div class="container">
       <div class="stat-row">
-        <div class="stat"><strong><span class="count" data-to="120">0</span>+</strong><span>posts publiés par mon agent IA</span></div>
-        <div class="stat"><strong><span class="count" data-to="99">0</span>+</strong><span>affiches produites et publiées</span></div>
-        <div class="stat"><strong><span class="count" data-to="15">0</span></strong><span>stratégies et plans de communication</span></div>
+        <div class="stat"><strong><span class="count" data-to="200">0</span>+</strong><span>posts publiés par mon agent IA</span></div>
+        <div class="stat"><strong><span class="count" data-to="100">0</span>+</strong><span>alertes d'actualité publiées seules</span></div>
+        <div class="stat"><strong><span class="count" data-to="13">0</span></strong><span>stratégies et plans de communication</span></div>
         <div class="stat"><strong><span class="count" data-to="5">0</span></strong><span>marques gérées en parallèle</span></div>
       </div>
     </div>
@@ -203,38 +203,103 @@
     <div class="container">
       <p class="eyebrow eyebrow-yellow"><span>04</span>Projet phare</p>
       <h2 class="big-title" data-split>Mon agent <em>social media</em></h2>
-      <p class="section-lead">Une agence qui travaille seule : zéro employé, zéro abonnement. Je l'ai conçu avec Claude puis branché sur plusieurs pages. Mon rôle : fixer la ligne éditoriale, autoriser et valider. Le reste tourne en continu.</p>
+      <p class="section-lead">Une agence qui travaille seule : zéro employé, zéro abonnement. Je l'ai conçu avec Claude. Il publie 8 fois par jour sur WILACTU et il traque l'actualité en temps réel, tous domaines confondus. Mon rôle : fixer la ligne éditoriale, autoriser et valider d'un clic.</p>
 
-      <div class="agent-layout">
-        <div>
-          <ol class="pipeline" id="pipeline">
+      <div class="agent-stats agent-stats-top">
+        <div><strong>8<small>/jour</small></strong><span>publications sur WILACTU</span></div>
+        <div><strong><span class="count" data-to="200">0</span>+</strong><span>posts déjà publiés</span></div>
+        <div><strong>9</strong><span>domaines surveillés en continu</span></div>
+        <div><strong><span class="count" data-to="100">0</span>+</strong><span>alertes publiées seules</span></div>
+      </div>
+
+      <div class="lanes">
+        <div class="lane">
+          <div class="lane-head"><span class="lane-badge lane-plan"><svg width="16" height="16"><use href="#i-sheet"/></svg> Posts programmés</span><span class="lane-time"><b>30 min</b> avant, un mail de validation</span></div>
+          <ol class="pipeline" data-pipeline>
             <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-sheet"/></svg></span><div><h3>Calendrier éditorial</h3><p>Chaque post vit dans un Google Sheets : date, heure, réseau, texte, visuel, statut.</p></div></li>
-            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-pen"/></svg></span><div><h3>Rédaction et affiches</h3><p>Textes avec hook, référencement et appel à l'action, affiches au format de chaque marque.</p></div></li>
-            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-radar"/></svg></span><div><h3>Radar d'actualité</h3><p>Un radar Gemini repère les infos chaudes (sport, crypto, tech, cybersécurité) et prépare des breaking news vérifiées.</p></div></li>
-            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-mail"/></svg></span><div><h3>Mail de validation</h3><p>30 minutes avant chaque publication, un mail part avec le post. Un clic pour valider ou refuser.</p></div></li>
+            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-pen"/></svg></span><div><h3>Rédaction et affiche</h3><p>Texte avec hook, référencement et appel à l'action, affiche au gabarit de la rubrique.</p></div></li>
+            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-mail"/></svg></span><div><h3>Mail de validation</h3><p>30 minutes avant, le post arrive dans ma boîte. Un clic pour valider ou refuser.</p></div></li>
             <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-send"/></svg></span><div><h3>Publication automatique</h3><p>Apps Script publie via les API Meta et LinkedIn, même PC éteint.</p></div></li>
-            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-bell"/></svg></span><div><h3>Notification et journal</h3><p>Une confirmation arrive 5 minutes après, chaque action est consignée dans un journal de suivi.</p></div></li>
+            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-bell"/></svg></span><div><h3>Notification et journal</h3><p>Une confirmation arrive après la publication et tout est consigné.</p></div></li>
           </ol>
         </div>
+        <div class="lane lane-alert">
+          <div class="lane-head"><span class="lane-badge lane-hot"><svg width="16" height="16"><use href="#i-radar"/></svg> Alertes en temps réel</span><span class="lane-time"><b>10 min</b> avant, un mail d'alerte</span></div>
+          <ol class="pipeline" data-pipeline>
+            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-radar"/></svg></span><div><h3>Veille 24 h sur 24</h3><p>Des agents surveillent tous les domaines. Aucun de ces posts n'est prévu dans le calendrier.</p></div></li>
+            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-check"/></svg></span><div><h3>Vérification de la source</h3><p>L'information n'est retenue que si elle est confirmée par des sources fiables.</p></div></li>
+            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-pen"/></svg></span><div><h3>Rédaction et affiche automatiques</h3><p>L'agent écrit le post et crée l'affiche qui correspond à l'actualité du moment.</p></div></li>
+            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-mail"/></svg></span><div><h3>Mail d'alerte</h3><p>10 minutes avant, je reçois l'alerte. Sans réponse de ma part, elle part quand même.</p></div></li>
+            <li class="pipe-step"><span class="pipe-icon"><svg width="22" height="22"><use href="#i-send"/></svg></span><div><h3>Publication immédiate</h3><p>Le post est en ligne quelques minutes après l'événement.</p></div></li>
+          </ol>
+        </div>
+      </div>
 
+      <div class="radar-block">
+        <div class="radar-head">
+          <p class="eyebrow eyebrow-yellow"><span>LIVE</span>Hub d'information</p>
+          <h3 class="radar-title">Le radar d'actualité <em>ne dort jamais</em></h3>
+          <p class="section-lead">WILACTU n'est pas seulement une page de football : c'est un hub d'information. Sport, politique, économie, santé, religion, finance, crypto, guerres, Afrique : mon agent surveille tout, vérifie, rédige, illustre et publie.</p>
+        </div>
+        <div class="radar-grid">
+          <div class="radar" id="radar" role="img" aria-label="Radar animé qui balaie neuf domaines d'actualité">
+            <svg viewBox="0 0 400 400" class="radar-svg">
+              <defs>
+                <radialGradient id="rg"><stop offset="0" stop-color="#f6c21b" stop-opacity=".0"/><stop offset="1" stop-color="#f6c21b" stop-opacity=".0"/></radialGradient>
+                <linearGradient id="sweepG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f6c21b" stop-opacity=".0"/><stop offset="1" stop-color="#f6c21b" stop-opacity=".55"/></linearGradient>
+              </defs>
+              <circle cx="200" cy="200" r="190" class="r-ring"/><circle cx="200" cy="200" r="140" class="r-ring"/><circle cx="200" cy="200" r="90" class="r-ring"/><circle cx="200" cy="200" r="40" class="r-ring"/>
+              <path d="M200 10V390M10 200H390" class="r-axis"/>
+              <g class="r-sweep"><path d="M200 200 L200 10 A190 190 0 0 1 335 65 Z" fill="url(#sweepG)"/><line x1="200" y1="200" x2="200" y2="10" class="r-beam"/></g>
+              <g id="radarBlips"></g>
+              <circle cx="200" cy="200" r="7" class="r-core"/>
+            </svg>
+            <ul class="radar-domains" id="radarDomains">
+              <li data-d="0">Sport</li><li data-d="1">Politique</li><li data-d="2">Économie</li><li data-d="3">Santé</li><li data-d="4">Religion</li><li data-d="5">Finance</li><li data-d="6">Crypto</li><li data-d="7">Guerres</li><li data-d="8">Afrique</li>
+            </ul>
+          </div>
+          <div class="feed" aria-label="Flux d'alertes, exemple illustratif">
+            <div class="feed-head"><span class="live-dot"></span> Flux d'alertes en direct <small>illustration du fonctionnement</small></div>
+            <ol class="feed-list" id="feedList"></ol>
+          </div>
+        </div>
+        <div class="alerts-marquee" aria-label="Affiches d'alertes publiées par l'agent">
+          <div class="marquee-track">
+            <button type="button" class="alert-card" data-gallery-open="alertes" data-index="0"><img src="assets/work/alertes/alerte-01.webp" alt="Alerte WILACTU : Alcaraz écrase Tiafoe aux ATP Finals" loading="lazy"></button>
+            <button type="button" class="alert-card" data-gallery-open="alertes" data-index="1"><img src="assets/work/alertes/alerte-02.webp" alt="Alerte WILACTU : Robert Pattinson est le nouveau James Bond" loading="lazy"></button>
+            <button type="button" class="alert-card" data-gallery-open="alertes" data-index="2"><img src="assets/work/alertes/alerte-03.webp" alt="Alerte WILACTU : Philippe Diallo défie Gianni Infantino pour la présidence de la FIFA" loading="lazy"></button>
+            <button type="button" class="alert-card" data-gallery-open="alertes" data-index="3"><img src="assets/work/alertes/alerte-04.webp" alt="Alerte WILACTU : un sommet à trois, une première" loading="lazy"></button>
+            <button type="button" class="alert-card" data-gallery-open="alertes" data-index="4"><img src="assets/work/alertes/alerte-05.webp" alt="Gabarit d'alerte WILACTU : actu" loading="lazy"></button>
+            <button type="button" class="alert-card" data-gallery-open="alertes" data-index="5"><img src="assets/work/alertes/alerte-06.webp" alt="Gabarit d'alerte WILACTU : Afrique" loading="lazy"></button>
+            <button type="button" class="alert-card" data-gallery-open="alertes" data-index="6"><img src="assets/work/alertes/alerte-07.webp" alt="Gabarit d'alerte WILACTU : crypto" loading="lazy"></button>
+            <button type="button" class="alert-card" data-gallery-open="alertes" data-index="7"><img src="assets/work/alertes/alerte-08.webp" alt="Gabarit d'alerte WILACTU : finance" loading="lazy"></button>
+            <button type="button" class="alert-card" data-gallery-open="alertes" data-index="8"><img src="assets/work/alertes/alerte-09.webp" alt="Gabarit d'alerte WILACTU : monde" loading="lazy"></button>
+            <button type="button" class="alert-card" data-gallery-open="alertes" data-index="9"><img src="assets/work/alertes/alerte-10.webp" alt="Gabarit d'alerte WILACTU : politique" loading="lazy"></button>
+            <button type="button" class="alert-card" data-gallery-open="alertes" data-index="10"><img src="assets/work/alertes/alerte-11.webp" alt="Gabarit d'alerte WILACTU : santé" loading="lazy"></button>
+            <button type="button" class="alert-card" data-gallery-open="alertes" data-index="11"><img src="assets/work/alertes/alerte-12.webp" alt="Gabarit d'alerte WILACTU : sport" loading="lazy"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="agent-layout agent-layout-2">
         <div class="agent-side">
           <div class="phone" data-video-open="assets/video/agence-wilfried.mp4" data-cursor="Écouter">
             <div class="phone-notch"></div>
             <video src="assets/video/agence-wilfried.mp4" poster="assets/video/agence-wilfried.jpg" muted loop playsinline preload="none" data-autoplay></video>
             <button type="button" class="phone-sound" aria-label="Regarder avec le son"><svg width="16" height="16"><use href="#i-volume"/></svg> Avec le son</button>
           </div>
+          <p class="phone-caption">Premier film de présentation, octobre 2026. Depuis, l'agent a beaucoup évolué.</p>
+        </div>
+        <div class="agent-side">
           <div class="terminal" aria-label="Exemple du journal de l'agent">
             <div class="terminal-head"><span></span><span></span><span></span><p><svg width="14" height="14"><use href="#i-terminal"/></svg> journal de l'agent · exemple d'une journée</p></div>
             <ol class="terminal-body" id="terminal"></ol>
           </div>
+          <div class="agent-stats agent-stats-sm">
+            <div><strong>30<small>min</small></strong><span>préavis, posts programmés</span></div>
+            <div><strong>10<small>min</small></strong><span>préavis, alertes imprévues</span></div>
+          </div>
         </div>
-      </div>
-
-      <div class="agent-stats">
-        <div><strong><span class="count" data-to="120">0</span></strong><span>posts Facebook WILACTU</span></div>
-        <div><strong>4<small>/jour</small></strong><span>publications Facebook</span></div>
-        <div><strong>30<small>min</small></strong><span>préavis de validation</span></div>
-        <div><strong>0</strong><span>employé, 0 abonnement</span></div>
       </div>
 
       <div class="connected">
@@ -266,8 +331,8 @@
           <p class="stack-num">01</p>
           <p class="tag">Média automatisé · Facebook et LinkedIn</p>
           <h3>WILACTU</h3>
-          <p>Mon média, lancé en octobre 2026 : football, crypto, numérique et actu du quotidien. Il tourne grâce à mon agent IA, avec quatre publications par jour sur Facebook et un fil personnel sur LinkedIn.</p>
-          <div class="kpis"><div><strong>120</strong><span>posts Facebook</span></div><div><strong>13</strong><span>posts LinkedIn</span></div><div><strong>99+</strong><span>affiches</span></div></div>
+          <p>Mon média, lancé en octobre 2026 : un hub d'information. Football, mais aussi politique, économie, santé, religion, finance, crypto, guerres et Afrique. Mon agent publie 8 fois par jour et traque l'actualité en continu, avec des alertes publiées seules.</p>
+          <div class="kpis"><div><strong>8/jour</strong><span>publications</span></div><div><strong>200+</strong><span>posts publiés</span></div><div><strong>9</strong><span>domaines surveillés</span></div></div>
           <a href="projets/wilactu.html" class="link-arrow">Ouvrir le projet <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
         </div>
         <div class="stack-media stack-media-fan">
@@ -340,7 +405,7 @@
 
     <div class="container">
       <div class="docs-head">
-        <h3 class="docs-title">Stratégies et plans de communication <span>15 dossiers rédigés</span></h3>
+        <h3 class="docs-title">Stratégies et plans de communication <span>13 dossiers rédigés</span></h3>
         <a class="link-arrow" href="projets/strategies.html">Tout parcourir <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
@@ -353,8 +418,6 @@
         <button type="button" class="doc" data-gallery-open="d-komarts-plan-devweb"><img src="assets/img/docs/komarts-plan-devweb/1.webp" alt="Plan de communication Kom'Arts formation Dev Web" loading="lazy"><span><strong>Kom'Arts</strong>Plan de communication Dev Web, 138 pages</span></button>
         <button type="button" class="doc" data-gallery-open="d-roots-plan-3"><img src="assets/img/docs/roots-plan-3/1.webp" alt="Plan de communication 3 de Roots" loading="lazy"><span><strong>Roots Technologies</strong>Plan de communication 3, 96 pages</span></button>
         <button type="button" class="doc" data-gallery-open="d-wura-plan-6-semaines"><img src="assets/img/docs/wura-plan-6-semaines/1.webp" alt="Plan de communication 6 semaines de Wura" loading="lazy"><span><strong>Wura for Women &amp; Child</strong>Plan 6 semaines, 84 publications</span></button>
-        <button type="button" class="doc" data-gallery-open="d-filinfos-roots"><img src="assets/img/docs/filinfos-roots/1.webp" alt="Réponse au cahier des charges Fil Infos" loading="lazy"><span><strong>Fil Infos</strong>Réponse au cahier des charges, 46 pages</span></button>
-        <button type="button" class="doc" data-gallery-open="d-possa-strategie"><img src="assets/img/docs/possa-strategie/1.webp" alt="Stratégie social media POSSA" loading="lazy"><span><strong>POSSA</strong>Stratégie social media, coécrite</span></button>
         <button type="button" class="doc" data-gallery-open="uac-proof"><img src="assets/img/proofs/uac/cover.jpg" alt="Couverture du dossier stratégie social media de l'UAC" loading="lazy"><span><strong>UAC</strong>108K abonnés audités, objectifs SMART</span></button>
         <button type="button" class="doc" data-gallery-open="panda-proof"><img src="assets/img/proofs/panda-ticket/cover.jpg" alt="Couverture de la stratégie social media de Panda Ticket" loading="lazy"><span><strong>Panda Ticket</strong>Plan à 3 mois, tunnel organisateurs</span></button>
         <button type="button" class="doc" data-gallery-open="pulse-proof"><img src="assets/img/proofs/football-pulse/cover.jpg" alt="Couverture de la stratégie TikTok Football Pulse" loading="lazy"><span><strong>Football Pulse</strong>Stratégie TikTok, 22 pages</span></button>
@@ -540,38 +603,55 @@
             <div class="bar" data-value="10"><span class="bar-label">Binance</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-value">10</span></div>
             <div class="bar" data-value="7"><span class="bar-label">Bitget</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-value">7</span></div>
           </div>
-          <p class="note">Également présent au premier meetup Bybit d'Afrique francophone.</p>
         </div>
         <div class="web3-photos">
           <button type="button" class="photo photo-a" data-gallery-open="web3" data-index="0"><img src="assets/img/web3/bitget-beyond-2025.jpg" alt="Wilfried à Bitget Beyond 2025" loading="lazy"><span>Bitget Beyond 2025</span></button>
           <button type="button" class="photo photo-b" data-gallery-open="web3" data-index="1"><img src="assets/img/web3/binance-angels.jpg" alt="Wilfried avec l'équipe Binance Angels" loading="lazy"><span>Binance Angels</span></button>
-          <button type="button" class="photo photo-c" data-gallery-open="web3" data-index="2"><img src="assets/img/web3/hope-with-bitcoin-meetup.jpg" alt="Wilfried au meetup Hope With Bitcoin" loading="lazy"><span>Meetup Hope With Bitcoin</span></button>
+          <button type="button" class="photo photo-c" data-gallery-open="web3" data-index="2"><img src="assets/img/web3/binance-meetup.jpg" alt="Wilfried à un meetup Binance" loading="lazy"><span>Meetup Binance</span></button>
         </div>
       </div>
+
+      <h3 class="sub">Les rendez-vous où j'étais</h3>
+      <ul class="events-rail" id="eventsRail">
+        <li class="event"><span class="event-num">01</span><h4>Binance Angels</h4><p>Communauté Binance, Cotonou</p></li>
+        <li class="event"><span class="event-num">02</span><h4>Bitget Beyond 2025</h4><p>Événement Bitget</p></li>
+        <li class="event"><span class="event-num">03</span><h4>Premier meetup Bybit</h4><p>Afrique francophone</p></li>
+        <li class="event"><span class="event-num">04</span><h4>Premier meetup Trust Wallet</h4><p>Présent dès la première édition</p></li>
+        <li class="event"><span class="event-num">05</span><h4>Stripe Community</h4><p>Premier meetup, Cotonou</p></li>
+      </ul>
+
       <div class="chips-marquee" aria-hidden="true"><div class="marquee-track">
-        <span class="chip-on">K2 Powerblock, actuel</span><span>CoinW</span><span>Rally</span><span>RobuSnipe</span><span>Multibank.io</span><span>Cache Wallet</span><span>Coin8</span><span>Bitget</span><span>Binance</span><span>Bybit</span>
+        <span class="chip-on">K2 Powerblock, actuel</span><span>CoinW</span><span>Rally</span><span>RobuSnipe</span><span>Multibank.io</span><span>Cache Wallet</span><span>Coin8</span><span>Bitget</span><span>Binance</span><span>Bybit</span><span>Trust Wallet</span><span>Stripe Community</span>
       </div></div>
     </div>
   </section>
 
   <!-- 11 PARCOURS -->
   <section id="parcours" class="section section-path">
+    <canvas class="path-net" id="pathNet" aria-hidden="true"></canvas>
+    <div class="path-side path-side-l" aria-hidden="true"><div class="marquee-track"><span>IA</span><span>Web3</span><span>Contenu</span><span>Données</span><span>Agents</span><span>Automatisation</span></div></div>
+    <div class="path-side path-side-r" aria-hidden="true"><div class="marquee-track"><span>Innovation</span><span>Communauté</span><span>Stratégie</span><span>Vidéo</span><span>Motion</span><span>Futur</span></div></div>
     <div class="container container-mid">
       <p class="eyebrow"><span>11</span>Parcours</p>
       <h2 class="big-title" data-split>Du terrain <em>à l'IA</em></h2>
+      <div class="path-stats">
+        <div><strong><span class="count" data-to="10">0</span></strong><span>étapes depuis juillet 2024</span></div>
+        <div><strong><span class="count" data-to="5">0</span></strong><span>marques actives</span></div>
+        <div><strong><span class="count" data-to="2">0</span>+</strong><span>ans d'activité</span></div>
+      </div>
       <div class="path">
-        <div class="path-line" aria-hidden="true"><span id="pathFill"></span><i class="path-spark"></i></div>
+        <div class="path-line" aria-hidden="true"><span id="pathFill"></span><i class="path-spark"></i><i class="path-spark path-spark-2"></i><i class="path-spark path-spark-3"></i></div>
         <ol>
-          <li class="path-item now"><span class="path-date">Oct. 2026, en cours</span><h3>Fondateur, WILACTU</h3><p>Média automatisé par mon agent IA sur Facebook et LinkedIn.</p></li>
-          <li class="path-item now"><span class="path-date">Août 2026, en cours</span><h3>Community Manager</h3><p>Benin Blockchain Days 2027</p></li>
-          <li class="path-item now"><span class="path-date">Juil. 2026, en cours</span><h3>Community Manager</h3><p>Roots Technologies, Panda Ticket, Kom'Arts</p></li>
-          <li class="path-item"><span class="path-date">Du 22 avril au 13 juillet 2026</span><h3>MTN TITA Digital Skills</h3><p>Programme intensif Community Management et Création de Contenu (MTN Bénin Foundation, Digitale Vallée).</p></li>
-          <li class="path-item"><span class="path-date">2026</span><h3>Ambassadeur</h3><p>K2 Powerblock</p></li>
-          <li class="path-item"><span class="path-date">Oct. 2025</span><h3>Community Manager</h3><p>Hope With Bitcoin</p></li>
-          <li class="path-item"><span class="path-date">Sept. 2025</span><h3>Community Manager</h3><p>Deltrax Africa : de 0 à 10 interactions par publication, 113 membres WhatsApp.</p></li>
-          <li class="path-item"><span class="path-date">Avril 2025</span><h3>Ambassadeur</h3><p>Multibank.io</p></li>
-          <li class="path-item"><span class="path-date">Mars 2025</span><h3>Ambassadeur</h3><p>RobuSnipe</p></li>
-          <li class="path-item"><span class="path-date">Juil. 2024 à janv. 2025</span><h3>Téléconseiller</h3><p>Media Contact Bénin</p></li>
+          <li class="path-item now"><span class="path-node" aria-hidden="true"></span><div class="path-card"><span class="path-date">Oct. 2026</span><span class="path-badge">En cours</span><h3 data-scramble>Fondateur, WILACTU</h3><p>Média automatisé par mon agent IA : 8 publications par jour et des alertes en temps réel.</p></div></li>
+          <li class="path-item now"><span class="path-node" aria-hidden="true"></span><div class="path-card"><span class="path-date">Août 2026</span><span class="path-badge">En cours</span><h3 data-scramble>Community Manager</h3><p>Benin Blockchain Days 2027, premier événement blockchain du Bénin.</p></div></li>
+          <li class="path-item now"><span class="path-node" aria-hidden="true"></span><div class="path-card"><span class="path-date">Juil. 2026</span><span class="path-badge">En cours</span><h3 data-scramble>Community Manager</h3><p>Roots Technologies, Panda Ticket et Kom'Arts.</p></div></li>
+          <li class="path-item"><span class="path-node" aria-hidden="true"></span><div class="path-card"><span class="path-date">Avril à juillet 2026</span><h3 data-scramble>MTN TITA Digital Skills</h3><p>Programme intensif Community Management et Création de Contenu (MTN Bénin Foundation, Digitale Vallée).</p></div></li>
+          <li class="path-item"><span class="path-node" aria-hidden="true"></span><div class="path-card"><span class="path-date">2026</span><h3 data-scramble>Ambassadeur</h3><p>K2 Powerblock</p></div></li>
+          <li class="path-item"><span class="path-node" aria-hidden="true"></span><div class="path-card"><span class="path-date">Oct. 2025</span><h3 data-scramble>Community Manager</h3><p>Hope With Bitcoin</p></div></li>
+          <li class="path-item"><span class="path-node" aria-hidden="true"></span><div class="path-card"><span class="path-date">Sept. 2025</span><h3 data-scramble>Community Manager</h3><p>Deltrax Africa : de 0 à 10 interactions par publication, 113 membres WhatsApp.</p></div></li>
+          <li class="path-item"><span class="path-node" aria-hidden="true"></span><div class="path-card"><span class="path-date">Avril 2025</span><h3 data-scramble>Ambassadeur</h3><p>Multibank.io</p></div></li>
+          <li class="path-item"><span class="path-node" aria-hidden="true"></span><div class="path-card"><span class="path-date">Mars 2025</span><h3 data-scramble>Ambassadeur</h3><p>RobuSnipe</p></div></li>
+          <li class="path-item"><span class="path-node" aria-hidden="true"></span><div class="path-card"><span class="path-date">Juil. 2024 à janv. 2025</span><h3 data-scramble>Téléconseiller</h3><p>Media Contact Bénin</p></div></li>
         </ol>
       </div>
     </div>
@@ -607,12 +687,6 @@
         <button type="button" class="cert" data-gallery-open="certs" data-index="7"><img src="assets/img/certifications/openclassrooms-marketing-digital.png" alt="Certificat OpenClassrooms : marketing digital" loading="lazy"><span><strong>Marketing digital</strong>OpenClassrooms, 2023</span></button>
         <button type="button" class="cert" data-gallery-open="certs" data-index="8"><img src="assets/img/certifications/learnio-wordpress.png" alt="Certificat LEARNIO : WordPress" loading="lazy"><span><strong>WordPress</strong>LEARNIO, 2023</span></button>
       </div>
-    </div>
-    <div class="container">
-      <figure class="testimonial">
-        <button type="button" class="testimonial-img" data-gallery-open="temoignage"><img src="assets/img/testimonials/kpogbeme.jpg" alt="Message WhatsApp de Nobert Kpogbème félicitant le comité pour la qualité du travail" loading="lazy"></button>
-        <figcaption><span class="quote-mark" aria-hidden="true">“</span><p>Après l'organisation d'un événement communautaire, la qualité du travail a été saluée devant tout le comité.</p><cite>Nobert KPOGBEME, Président de SOS Samedi Matin</cite></figcaption>
-      </figure>
     </div>
   </section>
 
@@ -663,6 +737,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.20.0/matter.min.js"></script>
-<script src="script.js?v=4"></script>
+<script src="script.js?v=5"></script>
 </body>
 </html>
