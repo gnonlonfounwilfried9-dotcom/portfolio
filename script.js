@@ -22,7 +22,7 @@
   const scrollToEl = (el) => scrollToY(el.getBoundingClientRect().top + window.scrollY - 70);
 
   /* ---------- Bandeaux : duplication pour une boucle sans couture ---------- */
-  $$('.marquee, .stack-marquee, .chips-marquee, .certs-marquee, .contact-marquee, .creator-marquee, .docs-marquee, .alerts-marquee, .path-side').forEach((m) => {
+  $$('.marquee, .stack-marquee, .chips-marquee, .certs-marquee, .contact-marquee, .creator-marquee, .docs-marquee, .alerts-marquee, .path-side, .canva-marquee').forEach((m) => {
     const t = $('.marquee-track', m);
     if (!t) return;
     const c = t.cloneNode(true);
@@ -471,13 +471,58 @@
     void cur;
   }
 
-  /* ---------- Rendez-vous Web3 : mise en avant tournante ---------- */
+  /* ---------- Web3 : pile de photos qui tourne, synchronisée avec les rendez-vous ---------- */
   const evs = $$('#eventsRail .event');
+  const deck = $('#web3Deck');
+  const cards = deck ? $$('.deck-card', deck) : [];
+  const dots = deck ? $$('#deckDots i') : [];
+  let front = 0;
+  const layout = () => {
+    cards.forEach((c, i) => {
+      const r = (i - front + cards.length) % cards.length;
+      for (let k = 0; k < cards.length; k++) c.classList.remove('p' + k);
+      c.classList.add('p' + r);
+    });
+    dots.forEach((d, i) => d.classList.toggle('on', i === front));
+  };
+  if (cards.length) layout();
+  // rendez-vous -> photo (index dans la pile) ; Trust Wallet n'a pas de photo
+  const evPhoto = [2, 3, 0, null, 1];
   if (evs.length && !reduce) {
     let ei = 0;
-    const lite = () => { evs.forEach((e, k) => e.classList.toggle('hot', k === ei)); ei = (ei + 1) % evs.length; };
-    lite(); setInterval(lite, 1800);
+    const lite = () => {
+      evs.forEach((e, k) => e.classList.toggle('hot', k === ei));
+      if (cards.length && evPhoto[ei] != null) { front = evPhoto[ei]; layout(); }
+      else if (cards.length && ei === 3) { front = 4; layout(); }
+      ei = (ei + 1) % evs.length;
+    };
+    lite(); setInterval(lite, 2600);
+  } else if (cards.length && !reduce) {
+    setInterval(() => { front = (front + 1) % cards.length; layout(); }, 2600);
   }
+  if (cards.length) {
+    cards.forEach((c, i) => c.addEventListener('pointerenter', () => { /* survol : pas de changement forcé */ }));
+    if (fine && !reduce) {
+      deck.addEventListener('pointermove', (e) => {
+        const r = deck.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        deck.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 8}deg)`;
+      });
+      deck.addEventListener('pointerleave', () => { deck.style.transform = ''; });
+      deck.style.transition = 'transform .4s var(--ease)';
+      deck.style.transformStyle = 'preserve-3d';
+    }
+  }
+
+  /* ---------- Créations : diaporamas en fondu ---------- */
+  $$('[data-slides]').forEach((box, bi) => {
+    const imgs = $$('img', box);
+    if (imgs.length < 2 || reduce) return;
+    let i = 0;
+    setTimeout(() => setInterval(() => {
+      imgs[i].classList.remove('on'); i = (i + 1) % imgs.length; imgs[i].classList.add('on');
+    }, 2300), bi * 700);
+  });
 
   /* ---------- Parcours : texte qui se décode + réseau d'innovation ---------- */
   const GL = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#<>/\\{}';
@@ -563,7 +608,7 @@
 
   if (hasGSAP && !reduce) {
     /* ---------- Apparitions ---------- */
-    const rise = '.stat, .profil-card, .ikigai-list li, .agent-stats > div, .connected, .doc, .service, .bars, .path-stats > div, .radar-block .section-lead, .feed, .lane, .events-rail li, .docs-title, .section-lead, .terminal, .creator-steps li, .all-projects, .sub';
+    const rise = '.stat, .profil-card, .ikigai-list li, .agent-stats > div, .connected, .doc, .service, .bars, .path-stats > div, .radar-block .section-lead, .feed, .lane, .events-rail li, .crea-card, .canva-head, .docs-title, .section-lead, .terminal, .creator-steps li, .all-projects, .sub';
     gsap.set(rise, { opacity: 0, y: 50 });
     ScrollTrigger.batch(rise, { start: 'top 88%', onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: 1, stagger: 0.08, ease: 'power3.out', overwrite: true, clearProps: 'transform' }) });
     const wipe = '.reel, .wide, .flow';
@@ -635,7 +680,7 @@
     'panda-proof': [P + 'panda-ticket/cover.jpg', P + 'panda-ticket/objectifs.jpg', P + 'panda-ticket/calendrier.jpg'],
     'pulse-proof': [P + 'football-pulse/cover.jpg', P + 'football-pulse/chiffres-cles.jpg', P + 'football-pulse/objectifs.jpg', P + 'football-pulse/calendrier-aout.jpg'],
     'guide-proof': [P + 'guide-12-points/cover.jpg', P + 'guide-12-points/point-05-cadrage.jpg', P + 'guide-12-points/conclusion.jpg'],
-    web3: ['bitget-beyond-2025', 'binance-angels', 'binance-meetup'].map((n) => `assets/img/web3/${n}.jpg`),
+    web3: ['bybit-meetup', 'stripe-community', 'binance-angels', 'bitget-beyond-2025', 'binance-meetup'].map((n) => `assets/img/web3/${n}.jpg`),
     certs: ['msa-ia-generative.png', 'binance-ia-agents.png', 'msa-fondamentaux-internet.png', 'msa-recherche-internet.png', 'coursera-powerpoint.png', 'binance-regulatory-risks.png', 'binance-academie-crypto.png', 'openclassrooms-marketing-digital.png', 'learnio-wordpress.png'].map((n) => 'assets/img/certifications/' + n),
     alertes: seq('alertes', 14).map((x) => x.replace('/alertes/alertes-', '/alertes/alerte-')),
   };
